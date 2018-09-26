@@ -1,0 +1,8 @@
+<!--pages/uesr_phone/uesr_phone.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view class='name'>
+<input class='name_input' placeholder='请输入您的新手机号' placeholder-style='color:#CCCCCC;font-size:30rpx;'  bindinput='phone' maxlength='11' type='number'></input>
+</view>
+
+<view class='qd' bindtap='sure'>确定</view>
+<template is="wetoast" data="{{...__wetoast__}}"/>

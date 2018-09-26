@@ -1,0 +1,107 @@
+/**index.wxss**/
+.ico{
+  width: 95%;
+  height: 500rpx;
+  margin-left: 2.5%;
+  /* border: 1rpx solid black; */
+}
+.ico_img{
+  width: 35%;
+  height: 250rpx;
+  margin-top: 50rpx;
+  margin-left: 33.5%;
+  /* border: 1rpx solid black; */
+}
+.ico_text{
+  width: 100%;
+  text-align: center;
+  margin-top: 30rpx;
+  font-size: 60rpx;
+  color: #282828;
+}
+.login{
+  width: 95%;
+  /* height: 500rpx; */
+  margin-left: 2.5%;
+  /* border: 1rpx solid black; */
+}
+.login_cou{
+  width: 90%;
+  margin-left: 5%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #E8E8E8;
+}
+.image{
+  width: 40rpx;
+  height: 70rpx;
+  margin-top: 15rpx;
+}
+.login_input{
+  width: 60%;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-top: 15rpx;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  /* border: 1rpx solid black; */
+}
+.login_text{
+  color: #FF3C0D;
+  font-size: 30rpx;
+  height: 100rpx;
+  margin-left: 45rpx;
+  line-height: 100rpx;
+}
+.login_button{
+  width: 80%;
+  margin-left: 10%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  text-align: center;
+  border-radius: 50rpx;
+  margin-top: 80rpx;
+  background-color: #FE4502;
+  color: white;
+}
+.login-right{
+  width: 95%;
+  height: 80rpx;
+  margin-left: 2.5%;
+  display: flex;
+  flex-direction: row;
+}
+.login-right_text{
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #7B7B7B;
+  margin-top: 30rpx;
+}
+.Relation{
+  width: 100%;
+  text-align: center;
+  font-size: 26rpx;
+  color: #9E9E9E;
+  margin-top: 50rpx;
+}
+.wx{
+  width: 80%;
+  height: 80rpx;
+  margin-left: 10%;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  /* border: 1rpx solid black; */
+}
+.wx_X{
+  width: 40%;
+  height: 0.1rpx;
+  background-color: #E3E3E3;
+  border: 0.1rpx solid #E3E3E3;
+  margin-top: 39.5rpx;
+}

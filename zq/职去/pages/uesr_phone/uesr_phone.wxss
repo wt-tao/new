@@ -1,0 +1,22 @@
+/* pages/uesr_phone/uesr_phone.wxss */
+.name{
+  width: 90%;
+  margin-left: 5%;
+  height: 100rpx;
+  border-bottom: 1rpx solid #E3E3E3;
+}
+.name_input{
+  width: 95%;
+  margin-left: 2.5%;
+  height: 80rpx;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+}
+.qd{
+  color: #333333;
+  font-size: 30rpx;
+  width: 88%;
+  margin-left: 5%;
+  text-align: right;
+  margin-top: 30rpx;
+}

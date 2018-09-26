@@ -1,0 +1,8 @@
+<!--pages/uesr_name/uesr_name.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view class='name'>
+<input class='name_input' placeholder='请输入您的昵称' placeholder-style='color:#CCCCCC;font-size:30rpx;' bindinput='name'/>
+</view>
+
+<view class='qd' bindtap='sure'>确定</view>
+<template is="wetoast" data="{{...__wetoast__}}"/>

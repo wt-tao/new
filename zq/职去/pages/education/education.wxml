@@ -1,0 +1,113 @@
+<!--pages/education/education.wxml-->
+<block wx:if='{{id==undefined}}'>
+<import src="../../utils/wetoast.wxml"/>
+<view class='list'>
+    <view class='name'>学　　校</view>
+    <view class='input'>
+    <input class='input' style='width:100%' placeholder='必填' placeholder-style='color:#999999;font-size:30rpx;' bindinput='School'></input>
+    </view>
+</view>
+
+<view class='list'>
+    <view class='name'>专　　业</view>
+    <view class='input'>
+    <input class='input' style='width:100%' placeholder='必填' placeholder-style='color:#999999;font-size:30rpx;' bindinput='major'></input>
+    </view>
+</view>
+<view class='list'>
+    <view class='name'>学　　历</view>
+    <view class='input'>
+        <picker  value="{{educatio}}" range='{{educations}}'  bindchange="bindEducationChange">
+        <view class='input'style='color:#999999;font-size:30rpx;width:100%'>{{educations[educatio]}}</view>
+        
+    </picker>
+   
+    </view>
+     <image src='../../img/yjt@3x.png' style='width:20rpx;margin-left:20rpx;margin-top:35rpx;' mode='widthFix'></image>
+</view>
+
+<view class='list'>
+    <view class='name'>入学时间</view>
+    <view class='input' >
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange">
+        <view class='input'style='color:#999999;font-size:30rpx;width:100%'>{{date}}</view>
+        
+    </picker>
+   
+    </view>
+     <image src='../../img/yjt@3x.png' style='width:20rpx;margin-left:20rpx;margin-top:35rpx;' mode='widthFix'></image>
+    <!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange"> -->    
+</view>
+<view class='list'>
+    <view class='name'>毕业时间</view>
+    <view class='input' >
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDatesChange">
+        <view class='input'style='color:#999999;font-size:30rpx;width:100%'>{{dates}}</view>
+        
+    </picker>
+   
+    </view>
+     <image src='../../img/yjt@3x.png' style='width:20rpx;margin-left:20rpx;margin-top:35rpx;' mode='widthFix'></image>
+    <!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange"> -->    
+</view>
+
+<view class='save' bindtap='save'>保 存</view>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+</block>
+
+
+<block wx:if='{{id!=undefined}}'>
+<import src="../../utils/wetoast.wxml"/>
+<view class='list'>
+    <view class='name'>学　　校</view>
+    <view class='input'>
+    <input class='input' style='width:100%' placeholder='{{education[0].profile1}}' placeholder-style='color:#999999;font-size:30rpx;' bindinput='School'></input>
+    </view>
+</view>
+
+<view class='list'>
+    <view class='name'>专　　业</view>
+    <view class='input'>
+    <input class='input' style='width:100%' placeholder='{{education[0].profile2}}' placeholder-style='color:#999999;font-size:30rpx;' bindinput='major'></input>
+    </view>
+</view>
+<view class='list'>
+    <view class='name'>学　　历</view>
+    <view class='input'>
+        <picker  value="{{educatio}}" range='{{educations}}'  bindchange="bindEducationChange">
+        <view class='input'style='color:#999999;font-size:30rpx;width:100%'>{{educations[educatio]}}</view>
+        
+    </picker>
+   
+    </view>
+     <image src='../../img/yjt@3x.png' style='width:20rpx;margin-left:20rpx;margin-top:35rpx;' mode='widthFix'></image>
+</view>
+
+<view class='list'>
+    <view class='name'>入学时间</view>
+    <view class='input' >
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange">
+        <view class='input'style='color:#999999;font-size:30rpx;width:100%'>{{date}}</view>
+        
+    </picker>
+   
+    </view>
+     <image src='../../img/yjt@3x.png' style='width:20rpx;margin-left:20rpx;margin-top:35rpx;' mode='widthFix'></image>
+    <!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange"> -->    
+</view>
+<view class='list'>
+    <view class='name'>毕业时间</view>
+    <view class='input' >
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDatesChange">
+        <view class='input'style='color:#999999;font-size:30rpx;width:100%'>{{dates}}</view>
+        
+    </picker>
+   
+    </view>
+     <image src='../../img/yjt@3x.png' style='width:20rpx;margin-left:20rpx;margin-top:35rpx;' mode='widthFix'></image>
+    <!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange"> -->    
+</view>
+
+<view class='save' bindtap='saves'>修 改</view>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+</block>

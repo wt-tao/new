@@ -1,0 +1,174 @@
+/* pages/job_news/job_news.wxss */
+.dibu{
+  width: 100%;
+  height: 100rpx;
+  /* border: 1rpx solid black; */
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+}
+.icon_img{
+  width: 20%;
+  height: 100%;
+  /* border: 1rpx solid black; */
+}
+.icon_text{
+  width: 100%;
+  text-align: center;
+  font-size: 26rpx;
+  color: #3B3B3B;
+}
+.top{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+.top_coun{
+  width: 50%;
+  font-size: 30rpx;
+  color: #333333;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #E5E5E5;
+  border-right: 1rpx solid #E5E5E5;
+}
+.on{
+  border-bottom: 7rpx solid #FC4502;
+}
+.interview_news{
+  width: 100%;
+  height: 150rpx;
+  margin-top: 10rpx;
+  border-bottom: 1rpx solid #EDEDED;
+}
+.interview_news_time{
+  width: 95%;
+  margin-left: 2.5%;
+  height: 75rpx;
+  line-height: 75rpx;
+  color: #9E9E9E;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row;
+}
+.tz{
+  width: 150rpx;
+  height: 60rpx;
+  margin-top: 20rpx;
+  line-height: 60rpx;
+  border: 1rpx solid #FE4502;
+  border-radius: 40rpx;
+  text-align: center
+}
+.bg {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+   background-color: black; 
+  z-index: 1001;
+  -moz-opacity: 0.7;
+  opacity: 0.70;
+  filter: alpha(opacity=70);
+}
+ 
+.show {
+  display: none;
+  text-align: center;
+  position: absolute;
+  top: 10%;
+  left: 7%;
+  width: 80%;
+  height: 50%;
+  padding: 8px;
+  background-color: white;
+  z-index: 1002;
+  overflow: auto;
+  border-radius: 10rpx;
+}
+.txt{
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #A2A2A2
+}
+.sure{
+  color: white;
+  font-size: 30rpx;
+  position: absolute;
+  top: 38%;
+  left:82%;
+  z-index: 1003;
+}
+.modal_tit{
+  width: 95%;
+  margin-left: 2.5;
+  color: #FF4206;
+  font-size: 40rpx;
+  font-weight: 800;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #F1F1F1;
+}
+.modal-time{
+  width: 90%;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-left: 5%;
+  color: #646464;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  text-align: left;
+  /* border: 1rpx solid black; */
+}
+.picker{
+  width: 330rpx;
+  margin-left: 20rpx;
+  height: 60rpx;
+  padding-left: 15rpx;
+  border: 1rpx solid #E9E9E9;
+}
+.modal-time_addres{
+  width: 380rpx;
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  color: #1B1B1B;
+  flex-wrap: wrap;
+  float: left;
+  line-height: 30rpx;
+  padding-top: 15rpx;
+}
+.submin{
+  width: 100%;
+  height: 80rpx;
+  margin-top: 50rpx;
+  display: flex;
+  /* border: 1rpx solid black; */
+}
+.submin_button{
+  color: white;
+  height: 80rpx;
+  width: 46%;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  margin-left: 2%;
+  border-radius: 7rpx;
+}
+.input{
+  border: 1rpx solid #E9E9E9;
+  margin-left: 20rpx;
+  height: 60rpx;
+  width: 340rpx;
+  padding-left: 10rpx;
+  font-size: 28rpx;
+}

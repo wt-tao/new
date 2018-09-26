@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+
+<view class='ico'>
+  <view class='ico_img'>
+    <image src='{{url}}/images/login-9.png' style='width:100%;height:100%'></image>
+  </view>
+  <view class='ico_text'>职去小程序登录</view>
+</view>
+
+<view class='login'>
+  <view class='login_cou'>
+    <image class='image' src='../../img/telphone-(1).png' style='width:35rpx;' mode='widthFix'></image>
+    <input class='login_input' placeholder='输入手机号' placeholder-style='color:#B5B5B5;font-size:28rpx;' type='number' maxlength='11' bindinput='phone'></input>
+    <!-- <view class='login_text'>发送验证码</view> -->
+  </view>
+  <view class='login_cou'>
+    <image class='image' src='../../img/login-yz.png' style='width:40rpx;margin-top:25.5rpx;' mode='widthFix'></image>
+    <input class='login_input' placeholder='输入密码' placeholder-style='color:#B5B5B5;font-size:28rpx;' type='password' bindinput='password'></input>
+    
+  </view>
+</view>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+<view class='login_button' bindtap='main'>登  录</view>
+
+<view class='login-right'>
+    <view class='login-right_text' style='color:#FE5D27' bindtap='register'>新会员注册</view>
+    <view class='login-right_text' bindtap='forget_password'>忘记密码</view>
+</view>
+
+<view class='Relation'>关联方式登录</view>
+
+<view class='wx'>
+  <view class='wx_X' ></view>
+  <button  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain='true' style='border:none' >
+    <image src='../../img/wx-(2).png' style='height:60rpx;width:60rpx;margin-top:10rpx;margin-left:20rpx;'></image>
+  </button>
+  <view class='wx_X' style='margin-left:22rpx;'></view>
+</view>

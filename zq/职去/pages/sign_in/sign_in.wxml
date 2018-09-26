@@ -1,0 +1,168 @@
+<!--pages/sign_in/sign_in.wxml-->
+<view class='search'>
+  <view class='search_tit'>人员搜索</view>
+  <view class='search_right'>
+      <input class='search_right_input' placeholder='请输入职位关键字' placeholder-style='color:#EDEDED;font-size:28rpx;' bindinput='fly'></input>
+      <image src='../../img/fdj.png' style='width:40rpx;margin-left:20rpx;margin-top:10rpx;' mode='widthFix' bindtap='search'></image>
+  </view>
+  <view class='search_sx' bindtap='saix' >筛选</view>
+</view>
+
+<block wx:if='{{true1}}'>
+<view class='top'>
+  <view class="top_coun {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">入职</view>
+  <view class="top_coun {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" >离职</view>
+</view>
+
+<!-- <swiper current="{{currentTab}}" class="swiper-box" bindchange='currentTabs' style="height:900rpx;"> -->
+    <!-- 入职 -->
+    <!-- <swiper-item style="height:1000rpx;overflow: scroll;"> -->
+    <block wx:if='{{currentTab==0}}'>
+       <view class='interview_dengds' wx:for='{{job}}'>
+              <view class='interview_dengd' style='width:100%;' >
+            <!-- 头像 -->
+                <view class='interview_dengd_img'>
+                    <image src='{{item.Head}}' style='width:100%;' mode='widthFix' class='imgs'></image>
+                </view>
+                <!-- 资料 -->
+                <view class='interview_dengd_right'>
+                    <view class='sign_in_zhong'>
+                      <view class='sign_in_list'>{{item.Name}}</view>
+                      <view class='sign_in_lists'>应聘职位：{{item.JobName}}</view>
+                      <view class='sign_in_lists' style='color:#9A9A9A;font-size:26rpx;' wx:if='{{item.Time!=null}}'>入职时间：{{item.Time}}</view>
+                    </view>
+                    <view class='sign_in_zhong' style='width:40%;'>
+                        <view class='sign_in_button' bindtap='sign' data-UID='{{item.UID}}' id='{{item.ID}}' wx:if='{{item.code==0}}'>入职签到</view>
+                        <view class='sign_in_button' style='color: #11B3FF;border: 1rpx solid #11B3FF;' id='{{item.ID}}' bindtap='lz' wx:if='{{item.code==1}}' data-UID='{{item.UID}}'>离职</view>
+                    </view>
+                </view>
+              </view>
+         <textarea class='textarea' wx:if='{{item.code==1}}' placeholder='请输入离职原因' placeholder-style='color:#BCBCBC;font-size:30rpx;' bindinput='Content' />
+         <view style='height:10rpx;'></view>
+
+           
+
+         <view style='height:120rpx;'></view>
+       </view>
+</block>
+    <!-- </swiper-item> -->
+<block wx:if='{{currentTab==1}}'>
+     <!-- 离职 -->
+    <!-- <swiper-item style="height:1000rpx;overflow: scroll;"> -->
+       <view class='interview_dengds'>
+              <view class='interview_dengd' style='width:100%;' wx:for='{{jobs}}'>
+            <!-- 头像 -->
+                <view class='interview_dengd_img'>
+                    <image src='{{item.Head}}' style='width:100%;' mode='widthFix' class='imgs'></image>
+                </view>
+                <!-- 资料 -->
+                <view class='interview_dengd_right'>
+                    <view class='sign_in_zhong'>
+                      <view class='sign_in_list'>{{item.Name}}</view>
+                      <view class='sign_in_lists'>应聘职位：{{item.JobName}}</view>
+                      <view class='sign_in_lists' style='color:#9A9A9A;font-size:28rpx;'>离职时间：{{item.Time}}</view>
+                    </view>
+                  
+                </view>
+              </view>
+         <view style='height:10rpx;'></view>
+       </view>
+  </block>
+</block>
+
+<!-- 入职 -->
+<block  wx:for='{{list}}' wx:if='{{item.code==1||item.code==0}}'>
+  <view class='interview_dengds'>
+              <view class='interview_dengd' style='width:100%;' >
+            <!-- 头像 -->
+                <view class='interview_dengd_img'>
+                    <image src='{{item.Head}}' style='width:100%;' mode='widthFix' class='imgs'></image>
+                </view>
+                <!-- 资料 -->
+                <view class='interview_dengd_right'>
+                    <view class='sign_in_zhong'>
+                      <view class='sign_in_list'>{{item.Name}}</view>
+                      <view class='sign_in_lists'>应聘职位：{{item.JobName}}</view>
+                      <view class='sign_in_lists' style='color:#9A9A9A;font-size:26rpx;' wx:if='{{item.Time!=null}}'>入职时间：{{item.Time}}</view>
+                    </view>
+                    <view class='sign_in_zhong' style='width:40%;'>
+                        <view class='sign_in_button' bindtap='sign' id='{{item.ID}}' wx:if='{{item.code==0}}'>入职签到</view>
+                        <view class='sign_in_button' style='color: #11B3FF;border: 1rpx solid #11B3FF;' id='{{item.ID}}' bindtap='lz' wx:if='{{item.code==1}}'>离职</view>
+                    </view>
+                </view>
+              </view>
+         <textarea class='textarea' wx:if='{{item.code==1}}' placeholder='请输入离职原因' placeholder-style='color:#BCBCBC;font-size:30rpx;' bindinput='Content' />
+         <view style='height:10rpx;'></view>
+
+          
+         <view style='height:120rpx;'></view>
+       </view>
+</block>
+
+<!-- 离职 -->
+<block wx:for='{{list}}' wx:if='{{item.code==2}}'>
+  <view class='interview_dengds'>
+              <view class='interview_dengd' style='width:100%;' >
+            <!-- 头像 -->
+                <view class='interview_dengd_img'>
+                    <image src='{{item.Head}}' style='width:100%;' mode='widthFix' class='imgs'></image>
+                </view>
+                <!-- 资料 -->
+                <view class='interview_dengd_right'>
+                    <view class='sign_in_zhong'>
+                      <view class='sign_in_list'>{{item.Name}}</view>
+                      <view class='sign_in_lists'>应聘职位：{{item.JobName}}</view>
+                      <view class='sign_in_lists' style='color:#9A9A9A;font-size:28rpx;'>离职时间：{{item.Time}}</view>
+                    </view>
+                  
+                </view>
+              </view>
+         <view style='height:10rpx;'></view>
+       </view>
+</block>
+    <!-- </swiper-item> -->
+<!-- </swiper> -->
+
+<!-- 遮罩层 -->
+<view class="bg"  style='display:{{display}}' bindtap='display'></view>
+<!-- <view class='sure' catchtap='hideview' style='display:{{display}}'>确定</view> -->
+<view class="show"  style='display:{{display}}'>
+    <view class='shows'>
+        <view class='shows_name'>起始时间：</view>
+            <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange">
+                <view class='input'style='color:#999999;font-size:30rpx;'>{{date}}</view>
+            </picker>
+    </view>
+     <view class='shows'>
+        <view class='shows_name'>起始时间：</view>
+            <picker mode="date" value="{{dates}}" start="2015-09-01" end="2097-09-01" bindchange="bindDatesChange">
+                <view class='input'style='color:#999999;font-size:30rpx;'>{{dates}}</view>
+            </picker>
+    </view>
+
+    <view class='cx' bindtap='cx'>查 询</view>
+    
+</view>
+
+<view class='dibu'>
+    <view class='icon_img' bindtap='job_news'>
+        <image src="{{icon1==true?'../../img/icon-copy-5.png':'../../img/icon-copy-5_13.png'}}" style='width:40rpx;margin-left:55rpx;margin-top:10rpx' mode='widthFix'></image>
+        <view class='icon_text'>消息</view>
+    </view>
+     <view class='icon_img'>
+        <image src="{{icon2==true?'../../img/zpfqd.png':'../../img/zpfms91.png'}}" style='width:60rpx;margin-left:50rpx;' mode='widthFix'></image>
+        <view class='icon_text' style='margin-top:-10rpx;'>签到</view>
+    </view>
+     <view class='icon_img' bindtap='release'>
+        <image src="../../img/zpffb-(1)_99.png" style='width:100rpx;margin-left:25rpx;margin-top:-40rpx;' mode='widthFix'></image>
+        <view class='icon_text' style='margin-top:-10rpx;'>发布</view>
+    </view>
+     <view class='icon_img' bindtap='interview'>
+        <image src="{{icon3==true?'../../img/zpfms (1).png':'../../img/zpfms (2).png'}}" style='width:50rpx;margin-left:55rpx;margin-top:10rpx' mode='widthFix'></image>
+        <view class='icon_text'>面试</view>
+    </view>
+     <view class='icon_img' bindtap='position'>
+        <image src="{{icon4==true?'../../img/zpfyz-(1).png':'../../img/zpfyz-(2).png'}}" style='width:40rpx;margin-left:55rpx;margin-top:10rpx' mode='widthFix'></image>
+        <view class='icon_text' style='margin-top:-5rpx;'>职位</view>
+    </view>
+</view>

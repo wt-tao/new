@@ -1,0 +1,39 @@
+<!--pages/education_detalis/education_detalis.wxml-->
+<view class='list'>
+    <view class='name'>学　　校</view>
+    <view class='input'>
+    <view class='input' style='width:100%' >{{job[0].profile1}}</view>
+    </view>
+</view>
+
+<view class='list'>
+    <view class='name'>专　　业</view>
+    <view class='input'>
+    <view class='input' style='width:100%'>{{job[0].profile2}}</view>
+    </view>
+</view>
+<view class='list'>
+    <view class='name'>学　　历</view>
+    <view class='input'>
+    <!-- ['必填','高中及以下','大专','本科','研究生','博士'], -->
+        <view class='input'style='font-size:30rpx;width:100%' wx:if='{{job[0].profile3==1}}'>高中及以下</view>
+        <view class='input'style='font-size:30rpx;width:100%' wx:if='{{job[0].profile3==2}}'>大专</view>
+        <view class='input'style='font-size:30rpx;width:100%' wx:if='{{job[0].profile3==3}}'>本科</view>
+        <view class='input'style='font-size:30rpx;width:100%' wx:if='{{job[0].profile3==4}}'>研究生</view>
+        <view class='input'style='font-size:30rpx;width:100%' wx:if='{{job[0].profile3==5}}'>博士</view>
+    </view>
+</view>
+
+<view class='list'>
+    <view class='name'>入学时间</view>
+    <view class='input' >
+        <view class='input'style='font-size:30rpx;width:100%'>{{job[0].BegTime}}</view>   
+    </view> 
+</view>
+<view class='list'>
+    <view class='name'>毕业时间</view>
+    <view class='input' >
+        <view class='input'style='font-size:30rpx;width:100%'>{{job[0].EndTime}}</view>
+   
+    </view>
+</view>

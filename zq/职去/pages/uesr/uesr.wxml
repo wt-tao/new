@@ -1,0 +1,49 @@
+<!--pages/uesr/uesr.wxml-->
+<image src='../../img/bacager-2.png' style='width:100%;height:400rpx;'></image>
+<view class='user'>
+    <view class='user_img'>
+      <image src='{{user.HeadUrl}}' style='width:100%;height:100%' class='imgs'/>
+    </view>
+    <view class='user_name'>{{user.Name}}</view>
+    <view class='user_time'>注册时间：{{user.Time}}</view>
+</view>
+<view class='apply'>
+  <view class='apply_my'>我的应聘</view>
+  <view class='apply_list'>
+    <view class='apply_list_img' bindtap='shenq' id='1'>
+        <image src='../../img/user1.png' style='width:50rpx;margin-left:97rpx;margin-top:50rpx;' mode='widthFix'></image>
+        <view class='apply_list_img_number'>{{user.Apply}}</view>
+        <view class='apply_list_img_text' style='margin-top:-35rpx;'>申请面试</view>
+    </view>
+     <view class='apply_list_img' bindtap='daim' id='2'>
+        <image src='../../img/user3.png' style='width:70rpx;margin-left:97rpx;margin-top:53rpx;' mode='widthFix'></image>
+        <view class='apply_list_img_number'>{{user.Stay}}</view>
+        <view class='apply_list_img_text' style='margin-top:-30rpx;'>待面试</view>
+    </view>
+     <view class='apply_list_img' bindtap='ruz' id='3'>
+        <image src='../../img/user2.png' style='width:70rpx;margin-left:97rpx;margin-top:53rpx;' mode='widthFix'></image>
+        <view class='apply_list_img_number'>{{user.Entry}}</view>
+        <view class='apply_list_img_text' >已入职</view>
+    </view>
+  </view>
+</view>
+
+<view class='uesr_list'>
+    <view class='uesr_list_index' bindtap='user_news' >
+        <view class='uesr_list_index_left'>个人信息</view>
+        <image src='../../img/yjt@3x.png' style='width:20rpx;margin-top:35rpx;margin-left:130rpx;' mode='widthFix'></image>
+    </view>
+     <view class='uesr_list_index' bindtap='resume'>
+        <view class='uesr_list_index_left'>我的简历</view>
+        <image src='../../img/yjt@3x.png' style='width:20rpx;margin-top:35rpx;margin-left:130rpx;' mode='widthFix'></image>
+    </view>
+      <view class='uesr_list_index'>
+        <view class='uesr_list_index_left' style='width:55%'>我的积分</view>
+        <view  style='margin-left:60rpx;'>{{user.JiFen}}</view>
+        <view class='tx' bindtap='Put_forward' id='{{user.JiFen}}'>提 现</view>
+    </view>
+      <view class='uesr_list_index' bindtap='password' id='{{user.Phone}}'>
+        <view class='uesr_list_index_left'>密码管理</view>
+        <image src='../../img/yjt@3x.png' style='width:20rpx;margin-top:35rpx;margin-left:130rpx;' mode='widthFix'></image>
+    </view>
+</view>

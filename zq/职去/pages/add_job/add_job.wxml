@@ -1,0 +1,99 @@
+<!--pages/add_job/add_job.wxml-->
+<block wx:if='{{id==undefined}}'>
+<view class='list'>
+    <view class='name'>公　　司</view>
+    <view class='input'>
+    <input class='input' style='width:100%' placeholder='必填' placeholder-style='color:#999999;font-size:30rpx;' bindinput='company'></input>
+    </view>
+</view>
+
+<view class='list'>
+    <view class='name'>职　　位</view>
+    <view class='input'>
+    <input class='input' style='width:100%' placeholder='必填' placeholder-style='color:#999999;font-size:30rpx;' bindinput='position'></input>
+    </view>
+</view>
+<import src="../../utils/wetoast.wxml"/>
+<view class='list'>
+    <view class='name'>入职时间</view>
+    <view class='input' >
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange">
+        <view class='input'style='color:#999999;font-size:30rpx;width:100%'>{{date}}</view>
+        
+    </picker>
+   
+    </view>
+     <image src='../../img/yjt@3x.png' style='width:20rpx;margin-left:20rpx;margin-top:35rpx;' mode='widthFix'></image>
+    <!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange"> -->    
+</view>
+<view class='list'>
+    <view class='name'>离职时间</view>
+    <view class='input' >
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDatesChange">
+        <view class='input'style='color:#999999;font-size:30rpx;width:100%'>{{dates}}</view>
+        
+    </picker>
+   
+    </view>
+     <image src='../../img/yjt@3x.png' style='width:20rpx;margin-left:20rpx;margin-top:35rpx;' mode='widthFix'></image>
+    <!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange"> -->    
+</view>
+
+<view class='list' style='border:none'>
+    <view class='name' style='width:30%;'>工作内容<text style='font-size:26rpx;'>（必填）</text></view>
+</view>
+
+<textarea class='textarea' maxlength='3000' placeholder='字数0-3000' placeholder-style='color:#CCCCCC;font-size:26rpx;' bindinput='text'></textarea>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+<view class='save' bindtap='save' >保 存</view>
+</block>
+
+
+<block wx:if='{{id!=undefined}}'>
+<view class='list'>
+    <view class='name'>公　　司</view>
+    <view class='input'>
+    <input class='input' style='width:100%' placeholder='{{job[0].profile1}}' placeholder-style='color:#999999;font-size:30rpx;' bindinput='company'></input>
+    </view>
+</view>
+
+<view class='list'>
+    <view class='name'>职　　位</view>
+    <view class='input'>
+    <input class='input' style='width:100%' placeholder='{{job[0].profile2}}' placeholder-style='color:#999999;font-size:30rpx;' bindinput='position'></input>
+    </view>
+</view>
+<import src="../../utils/wetoast.wxml"/>
+<view class='list'>
+    <view class='name'>入职时间</view>
+    <view class='input' >
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange">
+        <view class='input'style='color:#999999;font-size:30rpx;width:100%'>{{date}}</view>
+        
+    </picker>
+   
+    </view>
+     <image src='../../img/yjt@3x.png' style='width:20rpx;margin-left:20rpx;margin-top:35rpx;' mode='widthFix'></image>
+    <!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange"> -->    
+</view>
+<view class='list'>
+    <view class='name'>离职时间</view>
+    <view class='input' >
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDatesChange">
+        <view class='input'style='color:#999999;font-size:30rpx;width:100%'>{{dates}}</view>
+        
+    </picker>
+   
+    </view>
+     <image src='../../img/yjt@3x.png' style='width:20rpx;margin-left:20rpx;margin-top:35rpx;' mode='widthFix'></image>
+    <!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange"> -->    
+</view>
+
+<view class='list' style='border:none'>
+    <view class='name' style='width:30%;'>工作内容<text style='font-size:26rpx;'>（必填）</text></view>
+</view>
+
+<textarea class='textarea' maxlength='3000' placeholder='{{job[0].profile6}}' placeholder-style='color:#CCCCCC;font-size:26rpx;' bindinput='text'></textarea>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+<view class='save' bindtap='saves' >修 改</view>
+</block>

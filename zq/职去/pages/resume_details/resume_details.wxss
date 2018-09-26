@@ -1,0 +1,90 @@
+/* pages/resume_details/resume_details.wxss */
+page{
+  background-color: #F0F0F0;
+}
+.imgs{
+   border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+.name{
+  width: 95%;
+  margin-left: 2.5%;
+  height: 200rpx;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  /* border: 1rpx solid black; */
+}
+.name_img{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin-top: 25rpx;
+  margin-left: 10rpx;
+  /* border: 1rpx solid black; */
+}
+.name_list{
+  width: 70%;
+  height: 100%;
+  /* border: 1rpx solid black; */
+  margin-left: 40rpx;
+}
+.name_list_name{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 36rpx;
+  font-weight: 800;
+}
+.name_list_names{
+   width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #AEADA9
+}
+.basic{
+  width: 100%;
+  margin-top: 20rpx;
+  /* border: 1rpx solid black; */
+}
+.basic_tit{
+  width: 95%;
+  margin-left: 2.5%;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #FE4502;
+  font-size: 34rpx;
+  font-weight: 800;
+}
+.basic_list{
+  width: 95%;
+  margin-left: 2.5%;
+  background-color: white;
+  border:1rpx solid #D7D7D7;
+}
+.basic_list_name{
+  width: 90%;
+  margin-left: 5%;
+  height:80rpx;
+  line-height: 80rpx;
+  color: #757575;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+}
+.basic_list_name_right{
+  margin-left: 20rpx;
+}
+.basic_list_name_lefts{
+  width: 55%;
+  /* border: 1rpx solid black; */
+}
+.basic_list_name_rights{
+  width: 44%;
+  text-align: right;
+  /* border: 1rpx solid black; */
+}

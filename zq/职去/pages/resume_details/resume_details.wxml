@@ -1,0 +1,91 @@
+<!--pages/resume_details/resume_details.wxml-->
+<image src='../../img/jianli-15.png' style='width:100%;' mode='widthFix'></image>
+<view class='name'>
+    <view class='name_img'>
+        <image src='{{resume.Head}}' style='width:100%;' mode='widthFix' class='imgs'></image>
+    </view>
+    <view class='name_list'>
+        <view class='name_list_name'>{{resume.Name}}</view>
+        <view class='name_list_names'>{{resume.Age}} {{resume.XL}} {{resume.Exc}}</view>
+    </view>
+</view>
+
+<view class='basic'>
+    <view class='basic_tit'>基本信息</view>
+    <view class='basic_list'>
+        <view class='basic_list_name'>
+            <view class='basic_list_name_left'>姓　　名：</view>
+            <view class='basic_list_name_right'>{{resume.Name}}</view>
+        </view>
+        <view class='basic_list_name'>
+            <view class='basic_list_name_left'>性　　别：</view>
+            <view class='basic_list_name_right'>{{resume.Sex}}</view>
+        </view>
+        <view class='basic_list_name'>
+            <view class='basic_list_name_left'>当前身份：</view>
+            <view class='basic_list_name_right'>{{resume.Idtity}}</view>
+        </view>
+        <view class='basic_list_name'>
+            <view class='basic_list_name_left'>生　　日：</view>
+            <view class='basic_list_name_right'>{{resume.Day}}</view>
+        </view>
+        <view class='basic_list_name'>
+            <view class='basic_list_name_left'>所在城市：</view>
+            <view class='basic_list_name_right'>{{resume.City}}</view>
+        </view>
+        <view class='basic_list_name'>
+            <view class='basic_list_name_left'>联系电话：</view>
+            <view class='basic_list_name_right'>{{resume.Phone}}</view>
+        </view>
+        <view class='basic_list_name'>
+            <view class='basic_list_name_left'>联系邮箱：</view>
+            <view class='basic_list_name_right'>{{resume.Emali}}</view>
+        </view>
+    </view>
+</view>
+
+<view class='basic'>
+  <view class='basic_tit'>工作经历</view>
+  <view class='basic_list'>
+      <view class='basic_list_name' bindtap='you_job' wx:for='{{resume.historyModel}}' id='{{item.ID}}'>
+          <view class='basic_list_name_lefts'>{{item.Company}}</view>
+            <view class='basic_list_name_rights'>{{item.BegTime}}-{{item.EndTime}}</view>
+            <image src='../../img/yjt@3x.png' style='width:20rpx;margin-top:25rpx;margin-left:30rpx;' mode='widthFix'></image>
+      </view>
+  </view>
+</view>
+
+<view class='basic'>
+  <view class='basic_tit'>教育经历</view>
+  <view class='basic_list'>
+      <view class='basic_list_name' bindtap='education_detalis' wx:for='{{resume.educationModel}}' id='{{item.ID}}'>
+          <view class='basic_list_name_lefts'>{{item.School}}</view>
+            <view class='basic_list_name_rights'>{{item.BegTime}}-{{item.EndTime}}</view>
+            <image src='../../img/yjt@3x.png' style='width:20rpx;margin-top:25rpx;margin-left:30rpx;' mode='widthFix'></image>
+      </view>
+  </view>
+</view>
+
+<view class='basic'>
+  <view class='basic_tit'>项目经历</view>
+  <view class='basic_list'>
+      <view class='basic_list_name' bindtap='project_datils' wx:for='{{resume.projectModle}}' id='{{item.ID}}'>
+          <view class='basic_list_name_lefts'>{{item.Name}}</view>
+            <view class='basic_list_name_rights'>{{item.BegTime}}-{{item.EndTime}}</view>
+            <image src='../../img/yjt@3x.png' style='width:20rpx;margin-top:25rpx;margin-left:30rpx;' mode='widthFix'></image>
+      </view>
+  </view>
+</view>
+
+<view class='basic'>
+  <view class='basic_tit'>技能评价</view>
+  <view class='basic_list'>
+      <view class='basic_list_name' bindtap='skill_details' wx:for='{{resume.SkillMode}}' id='{{item.ID}}'>
+          <view class='basic_list_name_lefts'>{{item.SkillName}}</view>
+            <view class='basic_list_name_rights'>{{item.GetTime}}</view>
+            <image src='../../img/yjt@3x.png' style='width:20rpx;margin-top:25rpx;margin-left:30rpx;' mode='widthFix'></image>
+      </view>
+  </view>
+</view>
+
+<view style='height:100rpx;'></view>

@@ -1,0 +1,108 @@
+/* pages/position_details/position_details.wxss */
+
+
+.release_details{
+  width: 100%;
+  height: 500rpx;
+  margin-top: 20rpx;
+  border-bottom: 15rpx solid #D3D3D3;
+}
+.release_details_list{
+  width: 95%;
+  margin-left: 2.5%;
+  height: 80rpx;
+  line-height: 80rpx;
+  /* border: 1rpx solid black; */
+  display: flex;
+  flex-direction: row;
+}
+.release_details_list_name{
+  width: 22%;
+  font-size: 28rpx;
+  color: #292929;
+  /* border: 1rpx solid black; */
+}
+.release_details_list_input{
+  border-bottom: 1rpx solid #F2F2F2;
+  width: 75%;
+  height: 80rpx;
+  font-size: 28rpx;
+  
+}
+.picker{
+  /* border: 1rpx solid black; */
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+}
+.pickers{
+  width: 88%;
+  margin-left: 2%;
+  /* border: 1rpx solid black; */
+}
+.job_count{
+  width: 100%;
+  height: 400rpx;
+  border-bottom: 15rpx solid #D3D3D3;
+}
+.job_count_tit{
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-left: 20rpx;
+  font-size: 32rpx;
+}
+.textarea{
+  width: 90%;
+  margin-left: 3.5%;
+  height: 250rpx;
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1rpx solid #CCCCCC;
+}
+.job_count_fl{
+  width: 95%;
+  margin-left: 2.5%;
+  /* border: 1rpx solid black; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.job_count_fl_list{
+  min-width: 130rpx;
+  font-size: 26rpx;
+  text-align: center;
+  height: 50rpx;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  border-radius: 5rpx;
+  line-height: 50rpx;
+  background-color: #FC4705;
+  color: white;
+}
+.button{
+  width: 95%;
+  margin-left: 2.5%;
+  height: 100rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  /* border: 1rpx solid black; */
+  
+}
+.button_list{
+  width: 45%;
+  height: 80rpx;
+  margin-top: 10rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #363636;
+  font-size: 30rpx;
+  margin-left: 3.5%;
+  background-color: #DADADA;
+}

@@ -1,0 +1,84 @@
+<!--pages/news_details/news_details.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+<view class='page'>
+<view class='news_tit'>{{show.title}}</view>
+<view class='enterprise'>
+   <view class='details_company'  bindtap='company' id='{{show.QID}}'>
+        <view class='details_company_img'>
+          <image src='{{show.Head}}' style='width:100%;' mode='widthFix'></image>
+        </view>
+        <view class='details_company_count'>
+              <view class='details_company_count_name'>{{show.QName}}                  
+              </view>
+              <view class='details_company_count_details'>行业：{{show.HY}}  {{show.Add}}</view>             
+        </view>
+          <text class='details_company_follow' wx:if='{{show.follow==1}}' catchtap='gz' id='{{show.QID}}'>+关注</text>
+        <text class='details_company_follow' wx:if='{{show.follow==0}}'  catchtap='qxgz' id='{{show.QID}}'>已关注</text>
+    </view>
+</view>
+<view class='news_count'>
+    <view class='count_text'>{{show.content}} </view>
+    <!-- <template is="wxParse" data="{{wxParseData:da.nodes}}"/> -->
+    <!-- <text>{{show.content}}</text>  -->
+</view>
+ <!-- <view class='news_details_tiem'>
+          
+          <view class='news_details_tiem_see'>作者：{{show.content}}</view>
+          <view class='news_details_tiem_time'>{{show.Time}}</view>
+  </view> -->
+    
+ <!-- 招聘列表 -->
+ <view class='recruit_list'>
+    <view class='recruit_list_com' bindtap='job_details' wx:for='{{jobs}}' id='{{item.ZID}}'>
+        <view class='recruit_list_com_top'>
+        <!-- 公司logo -->
+            <view class='recruit_list_com_top_img'>
+                <image src='{{item.HeadImg}}' style='width:100%;' mode='widthFix'></image>
+            </view>
+            <view class='recruit_list_com_top_count'>
+                <view class='recruit_list_com_top_count_tit'>{{item.JobName}}</view>
+                <view class='recruit_list_com_top_count_name'>{{item.CName}}</view>
+                <view class='recruit_list_com_top_count_yq'>{{item.Add}} {{item.XueLi}} {{item.Exp}}</view>
+            </view>
+            <view class='recruit_list_com_top_treatment'>
+                <view class='recruit_list_com_top_treatment_bz'>入职补助：{{item.Subsidy}}.<text style='font-size:24rpx;'>00/天</text></view>
+                <view class='recruit_list_com_top_treatment_money'>{{item.Wage}}</view>
+                <view class='recruit_list_com_top_treatment_jl'>距离1.5公里</view>
+            </view>
+        </view>
+        <view class='recruit_list_com_bottom'>
+            <view class='recruit_list_com_bottom_kuang' wx:for='{{item.Welfare}}' wx:for-item='key'>{{key.Welfare}}</view>
+            <!-- <view class='recruit_list_com_bottom_kuang'>交补</view> -->
+        </view>
+    </view> 
+ 
+ </view>
+ <view class='pl' wx:for='{{data}}'>
+      <view class='pl_top'>
+          <view class='pl_top_img'>
+              <image src='{{item.headUrl}}' style='width:100%;height:100%;' mode='aspectFill' ></image>
+          </view>
+          <view class='pl_top_right'>
+              <view class='text' >{{item.UName}}</view>
+              <view class='text' style='font-weight:100;font-size:26rpx;color:#999999;line-height: 45rpx'>{{item.Time}}</view>
+          </view>
+      </view>
+      <view class='pl_count'>{{item.Content}}</view>
+      <view style='height:15rpx;width:100%;'></view>
+ </view>
+</view>
+<view style='height:200rpx;width:100%;'></view>
+<view class='botton'>
+    <view class='botton_top'>
+        <view class='botton_top_sc'>+收藏</view>
+        <view class='botton_top_fx' style='color:#696969;margin-left:100rpx;'>分享到</view>
+        <button class='botton_fx' style='border:none' plain='true' open-type='share'>
+            <image src='../../img/wx-(2).png' style='width:50rpx;height:50rpx;'></image>
+        </button>
+        <view class='botton_top_sc_number'>已有<text style='color:#FD3105'>{{show.PNum==''?"0":show.PNum}}</text>条评论</view>
+    </view>
+    <view class='botton_bottom'>
+        <input class='botton_bottom_input' bindinput='input' value='{{input}}'></input>
+        <view class='botton_bottom_pl' bindtap='comment' id='{{show.title}}'>评论</view>
+    </view>
+</view>

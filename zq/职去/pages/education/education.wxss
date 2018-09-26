@@ -1,0 +1,38 @@
+/* pages/education/education.wxss */
+.list{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #EDEDED;
+}
+.name{
+  width: 20%;
+  margin-left: 20rpx;
+  /* border: 1rpx solid black; */
+  font-size: 30rpx;
+  color: #2E2E2E;
+}
+.input{
+  width: 63%;
+  text-align: right;
+  font-size: 30rpx;
+  height: 100rpx;
+  /* padding-left: 100rpx; */
+  /* border: 1rpx solid black; */
+}
+
+
+.save{
+  width: 90%;
+  margin-left: 5%;
+  height: 80rpx;
+  border-radius: 5rpx;
+  color: white;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin-top: 480rpx;
+  background-color: #FE4502;
+}

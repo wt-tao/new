@@ -1,0 +1,66 @@
+<!--pages/skill/skill.wxml-->
+<block wx:if='{{id==undefined}}'>
+<import src="../../utils/wetoast.wxml"/>
+<view class='list'>
+    <view class='name'>技能名称</view>
+    <view class='input'>
+    <input class='input' style='width:100%' placeholder='必填' placeholder-style='color:#999999;font-size:30rpx;' bindinput='name'></input>
+    </view>
+</view>
+
+
+<view class='list'>
+    <view class='name'>获得时间</view>
+    <view class='input' >
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange">
+        <view class='input'style='color:#999999;font-size:30rpx;width:100%'>{{date}}</view>
+        
+    </picker>
+   
+    </view>
+     <image src='../../img/yjt@3x.png' style='width:20rpx;margin-left:20rpx;margin-top:35rpx;' mode='widthFix'></image>
+    <!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange"> -->    
+</view>
+
+<view class='list' style='border:none'>
+    <view class='name' style='width:30%;'>备　　注<text style='font-size:26rpx;'>（必填）</text></view>
+</view>
+<textarea class='textarea' maxlength='3000' placeholder='字数0-3000' placeholder-style='color:#CCCCCC;font-size:26rpx;' bindinput='text'></textarea>
+
+<view class='save' bindtap='save'>保 存</view>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+</block>
+
+
+
+<block wx:if='{{id!=undefined}}'>
+<import src="../../utils/wetoast.wxml"/>
+<view class='list'>
+    <view class='name'>技能名称</view>
+    <view class='input'>
+    <input class='input' style='width:100%' placeholder='{{skill[0].profile1}}' placeholder-style='color:#999999;font-size:30rpx;' bindinput='name'></input>
+    </view>
+</view>
+
+
+<view class='list'>
+    <view class='name'>获得时间</view>
+    <view class='input' >
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange">
+        <view class='input'style='color:#999999;font-size:30rpx;width:100%'>{{date}}</view>
+        
+    </picker>
+   
+    </view>
+     <image src='../../img/yjt@3x.png' style='width:20rpx;margin-left:20rpx;margin-top:35rpx;' mode='widthFix'></image>
+    <!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2097-09-01" bindchange="bindDateChange"> -->    
+</view>
+
+<view class='list' style='border:none'>
+    <view class='name' style='width:30%;'>备　　注<text style='font-size:26rpx;'>（必填）</text></view>
+</view>
+<textarea class='textarea' maxlength='3000' placeholder='{{skill[0].profile6}}' placeholder-style='color:#CCCCCC;font-size:26rpx;' bindinput='text'></textarea>
+
+<view class='save' bindtap='saves'>修 改</view>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+</block>

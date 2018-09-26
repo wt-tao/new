@@ -1,0 +1,25 @@
+<!--pages/project_datils/project_datils.wxml-->
+<view class='list'>
+    <view class='name'>项目名称</view>
+    <view class='input'>
+    <view class='input' style='width:100%'>{{job[0].profile1}}</view>
+    </view>
+</view>
+
+
+<view class='list'>
+    <view class='name'>开始时间</view>
+    <view class='input' >
+        <view class='input'style='font-size:30rpx;width:100%'>{{job[0].BegTime}}</view>
+    </view>    
+</view>
+<view class='list'>
+    <view class='name'>结束时间</view>
+    <view class='input' >
+        <view class='input'style='font-size:30rpx;width:100%'>{{job[0].EndTime}}</view>
+    </view>  
+</view>
+<view class='list' style='border:none'>
+    <view class='name' style='width:30%;'>内　　容</view>
+</view>
+<view class='textarea' >{{job[0].profile6}}</view>

@@ -1,0 +1,123 @@
+<!--pages/resume/resume.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view class='top'>
+  <view class='top_left'>完善个人简历,好工作不用愁</view>
+  <view class='top_right' bindtap='save' data-name='{{resume.Name}}' data-sex='{{resume.Sex}}' data-idtity='{{resume.Idtity}}' data-day='{{resume.Day}}' data-city='{{resume.City}}' data-phone='{{resume.Phone}}' data-emali='{{resume.Emali}}' data-xl='{{resume.XL}}' data-exc='{{resume.Exc}}'>保 存</view>
+</view>
+<scroll-view scroll-y style='height:1110rpx;'>
+<view class='basic'>
+    <view class='basic_tit'>基本信息 <text style='color:#FD4E11;font-size:26rpx;'>（必填）</text></view>
+    <view class='basic_list'>
+      <view class='basic_list_coul'>
+        <view class='basic_list_coul_name'>姓　　名：</view>
+        <input class='basic_list_coul_input' placeholder='{{resume.Name=="请输入您的姓名"?"请输入您的姓名":resume.Name}}' placeholder-style='color:#CCCCCC;font-size:28rpx;' bindinput='name'></input>
+      </view>
+
+       <view class='basic_list_coul'>
+        <view class='basic_list_coul_name'>性　　别：</view>
+        <view class='basic_list_coul_right basic_list_coul_input'>
+             <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker" wx:if='{{resume.Sex==array[index]}}'>{{resume.Sex}}</view>
+                <view class="picker" wx:if='{{resume.Sex!=array[index]}}'>{{array[index]}}</view>
+              </picker>
+              <image src='../../img/blackxl.png' style='width:40rpx;margin-left:10rpx;margin-top:30rpx;' mode='widthFix'></image>
+        </view>
+      </view>
+
+      <view class='basic_list_coul'>
+        <view class='basic_list_coul_name'>当前身份：</view>
+        <view class='basic_list_coul_right basic_list_coul_input'>
+             <picker bindchange="bindIdentityChange" value="{{ident}}" range="{{identity}}">
+                <view class="picker" wx:if='{{resume.Idtity==identity[ident]}}'>{{resume.Idtity}}</view>
+                <view class="picker" wx:if='{{resume.Idtity!=identity[ident]}}'>{{identity[ident]}}</view>
+              </picker>
+              <image src='../../img/blackxl.png' style='width:40rpx;margin-left:10rpx;margin-top:30rpx;' mode='widthFix'></image>
+        </view>
+      </view>
+
+      <view class='basic_list_coul'>
+        <view class='basic_list_coul_name'>生　　日：</view>
+        <input class='basic_list_coul_input' placeholder='{{resume.Day=="列（2018-01）"?"列（2018-01）":resume.Day}}' placeholder-style='color:#CCCCCC;font-size:28rpx;' bindinput='day'></input>
+      </view>
+
+       <view class='basic_list_coul'>
+        <view class='basic_list_coul_name'>学　　历：</view>
+        <input class='basic_list_coul_input' placeholder='{{resume.XL=="例：本科 "?"例：本科 ":resume.XL}}' placeholder-style='color:#CCCCCC;font-size:28rpx;' bindinput='educa'></input>
+      </view>
+
+       <view class='basic_list_coul'>
+        <view class='basic_list_coul_name'>经　　验：</view>
+        <input class='basic_list_coul_input' placeholder='{{resume.Exc=="例：1-3年"?"例：1-3年":resume.Exc}}' placeholder-style='color:#CCCCCC;font-size:28rpx;' bindinput='exp'></input>
+      </view>
+
+      <view class='basic_list_coul'>
+        <view class='basic_list_coul_name'>所在城市：</view>
+       <input class='basic_list_coul_input' placeholder='{{resume.City=="请填写您的城市"?"请填写您的城市":resume.City}}'  placeholder-style='color:#CCCCCC;font-size:28rpx;' bindinput='city'></input>
+      </view>
+
+      <view class='basic_list_coul'>
+        <view class='basic_list_coul_name'>联系电话：</view>
+        <input class='basic_list_coul_input' placeholder='{{resume.Phone=="请输入电话"?"请输入电话":resume.Phone}}'  placeholder-style='color:#CCCCCC;font-size:28rpx;' bindinput='phone'></input>
+      </view>
+
+      <view class='basic_list_coul'>
+        <view class='basic_list_coul_name'>联系邮箱：</view>
+        <input class='basic_list_coul_input' placeholder='{{resume.Emali=="请输入邮箱"?"请输入邮箱":resume.Emali}}'   placeholder-style='color:#CCCCCC;font-size:28rpx;' bindinput='emali'></input>
+      </view>
+      <view style='height:10rpx;width:100%'></view>
+    </view>
+</view>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+<view class='basic'>
+  <view class='basic_tit'>工作经历 <text style='color:#FD4E11;font-size:26rpx;'>（必填）</text></view>
+  <view class='basic_div' >
+      <view class='basic_div_list' wx:for='{{resume.historyModel}}' id='{{item.ID}}' bindtap='job_details'>
+          <view class='basic_div_list_name'>{{item.Company}}</view>
+          <view class='basic_div_list_text'>{{item.BegTime}}-{{item.EndTime}}</view>
+          <image src='../../img/yjt@3x.png' style='width:20rpx;margin-top:20rpx;margin-left:20rpx;' mode='widthFix'></image>
+      </view>
+      <view class='basic_div_list_add' bindtap='add_job'>+添加工作经历</view>
+      <view class='basic_div_list_add' style='color:#D0D0D0;font-size:26rpx;'>请从最近一份工作说起</view>
+  </view>
+</view>
+
+<view class='basic'>
+  <view class='basic_tit'>教育经历 <text style='color:#FD4E11;font-size:26rpx;'>（必填）</text></view>
+  <view class='basic_div'>
+      <view class='basic_div_list' wx:for='{{resume.educationModel}}' id='{{item.ID}}' bindtap='jeducation_details'>
+          <view class='basic_div_list_name'>{{item.School}}</view>
+          <view class='basic_div_list_text'>{{item.BegTime}}-{{item.EndTime}}</view>
+          <image src='../../img/yjt@3x.png' style='width:20rpx;margin-top:20rpx;margin-left:20rpx;' mode='widthFix'></image>
+      </view>
+      <view class='basic_div_list_add' bindtap='education'>+添加教育经历</view>
+      <view class='basic_div_list_add' style='color:#D0D0D0;font-size:26rpx;'>请从最高学历写起</view>
+  </view>
+</view>
+
+<view class='basic'>
+  <view class='basic_tit'>项目经历 <text style='color:#FD4E11;font-size:26rpx;'>（必填）</text></view>
+  <view class='basic_div'>
+      <view class='basic_div_list' wx:for='{{resume.projectModle}}' id='{{item.ID}}' bindtap='project_details'>
+          <view class='basic_div_list_name'>{{item.Name}}</view>
+          <view class='basic_div_list_text'>{{item.BegTime}}-{{item.EndTime}}</view>
+          <image src='../../img/yjt@3x.png' style='width:20rpx;margin-top:20rpx;margin-left:20rpx;' mode='widthFix'></image>
+      </view>
+      <view class='basic_div_list_add' bindtap='project'>+添加项目经历</view>
+      <view class='basic_div_list_add' style='color:#D0D0D0;font-size:26rpx;'>请从近从事项目写起</view>
+  </view>
+</view>
+
+<view class='basic'>
+  <view class='basic_tit'>技能评价 <text style='color:#FD4E11;font-size:26rpx;'>（必填）</text></view>
+  <view class='basic_div'>
+      <view class='basic_div_list' wx:for='{{resume.SkillMode}}' id='{{item.ID}}' bindtap='Skill_details'>
+          <view class='basic_div_list_name'>{{item.SkillName}}</view>
+          <view class='basic_div_list_text'>{{item.GetTime}}</view>
+          <image src='../../img/yjt@3x.png' style='width:20rpx;margin-top:20rpx;margin-left:20rpx;' mode='widthFix'></image>
+      </view>
+      <view class='basic_div_list_add' bindtap='skill'>+展示我的技能</view>
+      <view class='basic_div_list_add' style='color:#D0D0D0;font-size:26rpx;'>请从最高学历写起</view>
+  </view>
+</view>
+<view style='width:100%;height:80rpx;background-color: #F0F0F0;'></view>
+</scroll-view>

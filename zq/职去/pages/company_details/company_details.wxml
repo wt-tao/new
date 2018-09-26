@@ -1,0 +1,71 @@
+<!--pages/company_details/company_details.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view class='details_company' bindtap='company_details'>
+        <view class='details_company_img'>
+            <image src='{{company.HeadImg}}' style='width:100%' mode='widthFix'/>
+        </view>
+        <view class='details_company_count'>
+              <view class='details_company_count_name'>{{company.CompanyNmae}}                  
+              </view>
+              <view class='details_company_count_details'>行业：{{company.HyId}}  {{company.Address}}</view>             
+        </view>
+        <view class='addr'>
+            <view class='details_company_follow' catchtap='gz' id='{{company.ID}}' wx:if='{{company.follow==1}}'>+关注</view>
+            <view class='details_company_follow' catchtap='qxgz' id='{{company.ID}}' wx:if='{{company.follow==0}}' style='border:1rpx solid #676767;color:#676767'>已关注</view>
+            <view class='details_company_follow' style='font-size:24rpx;width:150rpx;margin-left:-20rpx;' data-lng='{{company.ulng}}' data-lat='{{company.ulat}}' bindtap='map'>查看地址</view>
+        </view>
+
+   
+    </view>
+<view style='width:100%;height:10rpx;background-color: #DEDEDE;'></view>
+
+<view class='top'>
+  <view class="top_coun {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav" id='{{company.ID}}'>公司介绍</view>
+  <view class="top_coun {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" >招聘职位</view>
+</view>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+<swiper current="{{currentTab}}" class="swiper-box" bindchange='currentTabs' style="height:900rpx;"  >
+<!-- 公司详情 -->
+ <swiper-item style="height:900rpx;overflow: scroll;">
+<block wx:for='{{list}}'>
+        <view class='news_details' bindtap='new_detail'  id='{{item.NID}}'  data-ids='{{item.QID}}'>
+      <text class='news_details_text'>{{item.title}}</text>
+      <scroll-view scroll-x  style='white-space: nowrap;height:180rpx;'>
+          <view class='news_details_scroll'>
+              <view class='news_details_scroll_list' wx:if='{{item.img1!=""}}'>
+                  <image src='{{item.img1}}' style='width:100%;' mode='widthFix'></image>
+              </view>
+              <view class='news_details_scroll_list' wx:if='{{item.img2!=""}}'>
+                  <image src='{{item.img2}}' style='width:100%;' mode='widthFix'></image>
+              </view>
+              <view class='news_details_scroll_list' wx:if='{{item.img3!=""}}'>
+                  <image src='{{item.img3}}' style='width:100%;' mode='widthFix'></image>
+              </view>
+
+          </view>
+      </scroll-view>
+        <view class='news_details_tiem'>
+          <image src='../../img/llsee.png' style='width:40rpx;height:30rpx;margin-left:20rpx;margin-top:25rpx'></image>
+          <view class='news_details_tiem_see'>{{item.Num}}</view>
+          <view class='news_details_tiem_time'>{{item.Time}}</view>
+        </view>
+  </view>
+  <view style='width:100%;height:15rpx;background-color: #E0E0E0;'></view>
+</block>
+    
+    </swiper-item>
+    <!-- 职位 -->
+    <swiper-item style="height:900rpx;overflow: scroll;">
+        <view class='job_list' wx:for='{{company.ZPmeg}}' bindtap='job_details' id='{{item.ZID}}' >
+          <view class='job_list_left' style='margin-left: 5%;'>
+              <view class='job_list_left_name'>{{item.JobName}}</view>
+              <view class='job_list_left_xq'>{{item.add}} {{item.XueLi}} {{item.Exp}}</view>
+          </view>
+           <view class='job_list_left' >
+              <view class='job_list_right_name'>入职补助：{{item.Subsidy}}<text style='font-size:24'>/天</text></view>
+              <view class='job_list_right_xq'>{{item.Wage}}</view>
+          </view>
+        </view>
+    
+    </swiper-item>
+</swiper>

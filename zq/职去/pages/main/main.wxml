@@ -1,0 +1,118 @@
+<!--pages/main/main.wxml-->
+
+<view class='search'>
+  <view class='search_tit' >职位搜索</view>
+  <view class='search_right'>
+      <input class='search_right_input' placeholder='请输入职位关键字' placeholder-style='color:#EDEDED;font-size:28rpx;' bindinput='fly'/>
+      <image src='../../img/fdj.png' style='height:45rpx;width:45rpx;margin-left:30rpx;margin-top:10rpx;' bindtap='search'></image>
+  </view>
+</view>
+<!--轮播  -->
+<block  wx:if='{{true1}}'>
+<view class='head'>
+     <swiper indicator-dots="true" autoplay="true" interval="3000" indicator-color='white' indicator-active-color='#FF7F01' duration="1000" class="swiper-item" circular="true">
+          <block wx:for="{{banner}}" wx:for-index="index">
+              <swiper-item>
+                <image src="{{item.imgUrl}}" class="slide-image" style='width:100%;height:100%' mode="widthFix" />
+              </swiper-item>
+          </block>
+     </swiper>
+</view>
+
+<view class='title'>
+  <view class='title_com' bindtap='daily_new'>
+    <view class='title_com_img'>
+        <image src='{{url}}/images/mrsx.png' style='width:100%;height:100%' mode="aspectFill"></image>
+    </view>
+    <view class='title_com_text'>每日上新</view>
+  </view>
+
+  <view class='title_com' bindtap='hot_position'>
+    <view class='title_com_img'>
+        <image src='{{url}}/images/rmzw.png' style='width:100%;height:100%' mode="aspectFill"></image>
+    </view>
+    <view class='title_com_text'>热门职位</view>
+  </view>
+
+  <view class='title_com' bindtap='all_position'>
+    <view class='title_com_img'>
+        <image src='{{url}}/images/qbzw.png' style='width:100%;height:100%' mode="aspectFill"></image>
+    </view>
+    <view class='title_com_text'>全部职位</view>
+  </view>
+</view>
+<!--和谐的分割线  -->
+<view class='fg'></view>
+
+ <view class='recruit' bindtap='tz'>
+    <view class='recruit_tit'>
+        <view class='recruit_tit_text'>智能排序</view>
+        <image src='../../img/xljt.png' style='width:20rpx;height:20rpx;margin-top:30rpx;'></image>
+    </view>
+     <view class='recruit_tit'>
+        <view class='recruit_tit_text'>地区选择</view>
+        <image src='../../img/xljt.png' style='width:20rpx;height:20rpx;margin-top:30rpx;'></image>
+    </view>
+      <view class='recruit_tit' style='width:30%;border:none'>
+        <view class='recruit_tit_text'>筛选</view>
+        <image src='../../img/xljt.png' style='width:20rpx;height:20rpx;margin-top:30rpx;'></image>
+    </view>
+ </view>
+
+ <!-- 招聘列表 -->
+ <view class='recruit_list'>
+    <view class='recruit_list_com' bindtap='job_details' wx:for='{{Applicant}}' id='{{item.ZID}}'>
+        <view class='recruit_list_com_top'>
+        <!-- 公司logo -->
+            <view class='recruit_list_com_top_img'>
+                <image src='{{item.HeadImg}}' style='width:100%;' mode='widthFix'></image>
+            </view>
+            <view class='recruit_list_com_top_count'>
+                <view class='recruit_list_com_top_count_tit'>{{item.JobName}}</view>
+                <view class='recruit_list_com_top_count_name'>{{item.CName}}</view>
+                <view class='recruit_list_com_top_count_yq' catchtap='map'>{{item.Add}} {{item.XueLi}} {{item.Exp}}</view>
+            </view>
+            <view class='recruit_list_com_top_treatment'>
+                <view class='recruit_list_com_top_treatment_bz'>入职补助：{{item.Subsidy}}<text style='font-size:24rpx;'>元/天</text></view>
+                <view class='recruit_list_com_top_treatment_money'>{{item.Wage}}</view>
+                <view class='recruit_list_com_top_treatment_jl'>{{item.result}}</view>
+            </view>
+        </view>
+        <view class='recruit_list_com_bottom' >
+            <view class='recruit_list_com_bottom_kuang' wx:for='{{item.Welfare}}' wx:for-item='key'>{{key.Welfare}}</view>
+            <!-- <view class='recruit_list_com_bottom_kuang'>交补</view> -->
+        </view>
+    </view> 
+ </view>
+ </block>
+
+
+<!-- 搜索职位列表 -->
+ <block  wx:if='{{true2}}'>
+<!-- 招聘列表 -->
+    <view class='recruit_list'>
+        <view class='recruit_list_com' bindtap='job_details' wx:for='{{list}}' id='{{item.ZID}}'>
+            <view class='recruit_list_com_top'>
+            <!-- 公司logo -->
+                <view class='recruit_list_com_top_img'>
+                    <image src='{{item.HeadImg}}' style='width:100%;' mode='widthFix'></image>
+                </view>
+                <view class='recruit_list_com_top_count'>
+                    <view class='recruit_list_com_top_count_tit'>{{item.JobName}}</view>
+                    <view class='recruit_list_com_top_count_name'>{{item.CName}}</view>
+                    <view class='recruit_list_com_top_count_yq'>{{item.Add}} {{item.XueLi}} {{item.Exp}}</view>
+                </view>
+                <view class='recruit_list_com_top_treatment'>
+                    <view class='recruit_list_com_top_treatment_bz'>入职补助：{{item.Subsidy}}<text style='font-size:24rpx;'>元/天</text></view>
+                    <view class='recruit_list_com_top_treatment_money'>{{item.Wage}}</view>
+                    <view class='recruit_list_com_top_treatment_jl'>距离1.5公里</view>
+                </view>
+            </view>
+            <view class='recruit_list_com_bottom' >
+                <view class='recruit_list_com_bottom_kuang' wx:for='{{item.Welfare}}' wx:for-item='key'>{{key.Welfare}}</view>
+                <!-- <view class='recruit_list_com_bottom_kuang'>交补</view> -->
+            </view>
+        </view> 
+
+    </view>
+  </block>

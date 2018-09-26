@@ -1,0 +1,76 @@
+<!--pages/news/news.wxml-->
+<view class='top'>
+  <view class="top_coun {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">我的关注</view>
+  <view class="top_coun {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" style='border-left:none;border-right:none'>谁看过我</view>
+  <view class="top_coun {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">我的面试</view>
+  <view class="top_coun {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">面试通知</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box"   style="height:1000rpx;">
+<!-- 我的关注 -->
+    <swiper-item style="height:1100rpx;overflow: scroll;">
+           <view class='details_company'  bindtap='company_details' wx:for='{{gz}}' id='{{item.QID}}'>
+        <view class='details_company_img'>
+          <image src='{{item.Head}}' style='width:100%' mode='widthFix'></image>
+        </view>
+        <view class='details_company_count'>
+              <view class='details_company_count_name'>{{item.Name}}                  
+              </view>
+              <view class='details_company_count_details'>行业：{{item.HY}}  {{item.Add}}</view>             
+        </view>
+        <text class='details_company_follow' style='border:none;color:#A1A1A1' bindtap='qxgz' id='{{item.QID}}'>已关注</text>
+    </view>
+    </swiper-item>
+<!-- 谁看过我 -->
+   <swiper-item style="height:1000rpx;overflow: scroll;">
+           <view class='details_company' bindtap='company_details'>
+        <view class='details_company_img'></view>
+        <view class='details_company_count'>
+              <view class='details_company_count_name'>成都理想科技有限公司                  
+              </view>
+              <view class='details_company_count_details'>行业：制造业  锦江</view>             
+        </view>
+        <text class='details_company_follow'>+关注</text>
+    </view>
+
+    </swiper-item>
+    <!-- 我的面试 -->
+   <swiper-item style="height:1000rpx;overflow: scroll;">
+          <view class='details_companys' wx:for='{{news}}'>
+            <view class='details_companys_time'>
+                <text style='width:86.5%;margin-left:2.5%'>{{item.Time}}</text>
+                <view class='details_companys_time_img'>
+                    <image src='../../img/new.png' style='width:100%;height:100%;' mode='widthFix' wx:if='{{item.code==1}}'></image>
+                </view>
+            </view>
+            <view class='details_companys_gs'>您对 <text style='color:#009AFE'>{{item.CompanyNmae}} {{item.JobName}}</text> 的面试为 
+                <text style='color:#FF4E0D' wx:if='{{item.Mcode==1}}'>不通过</text>
+                <text style='color:#00B367' wx:if='{{item.Mcode==0}}'>通过</text>
+            </view>
+            <view class='details_companys_gs' style='color:#FE4502' wx:if='{{item.Mcode==1}}'>原因：{{item.Content}}</view>
+            <view style='height:20rpx;'></view>
+          </view>
+
+        
+    </swiper-item>
+    <!-- 面试通知 -->
+    <swiper-item style="height:1000rpx;overflow: scroll;">
+          <view class='details_companys' wx:for='{{news}}'>
+            <view class='details_companys_time'>
+                <text style='width:86.5%;margin-left:2.5%'>{{item.mTime}}</text>
+                <view class='details_companys_time_img'>
+                    <image src='../../img/new.png' style='width:100%;height:100%;' mode='widthFix' wx:if='{{item.code==1}}'></image>
+                </view>
+            </view>
+            <view class='details_companys_gs'> <text style='color:#009AFE'>{{item.mCompanyNmae}} </text>请您在<text style='color:#FF5022'>{{item.mTime}}</text>到<text style='color:#242423'>{{item.mAdd}}</text> 面试 <text style='color:#009AFE'>{{item.mJob}}</text>,请带上{{item.mTerial}}
+
+                <!-- <text style='color:#FF4E0D' wx:if='{{item.Mcode==1}}'>不通过</text>
+                <text style='color:#00B367' wx:if='{{item.Mcode==0}}'>通过</text> -->
+            </view>
+            <view class='details_companys_gs' style='color:#FE4502' wx:if='{{item.Mcode==1}}'>原因：工作经验能力与职位不符合</view>
+            <view style='height:20rpx;'></view>
+          </view>
+
+        
+    </swiper-item>
+</swiper>

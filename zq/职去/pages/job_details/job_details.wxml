@@ -1,0 +1,77 @@
+<!--pages/job_details/job_details.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view class='page'>
+<view class='details_top' >
+    <!-- 公司 -->
+    <view class='details_company' bindtap='company_details' id='{{job.QID}}'>
+        <view class='details_company_img'>
+            <image src='{{job.HeadImg}}' style='width:100%' mode='widthFix'></image>
+        </view>
+        <view class='details_company_count'>
+              <view class='details_company_count_name'>{{job.CName}}                  
+              </view>
+              <view class='details_company_count_details'>行业：{{job.HyId}} {{job.Add}}</view>             
+        </view>
+        <text class='details_company_follow' catchtap='gz' id='{{job.QID}}' wx:if='{{job.follow==1}}'>+关注</text>
+        <text class='details_company_follow' catchtap='qxgz' id='{{job.QID}}' style='border:1rpx solid #676767;color:#676767' wx:if='{{job.follow==0}}'>已关注</text>
+    </view>
+    <!-- 职位 -->
+    <view class='details_job'>
+        <view class='details_job_name'>{{job.JobName}}</view>
+        <view class='details_job_details'>
+            <view class='details_job_details_money'>{{job.Wage}}</view>
+            <view class='details_job_details_bz'>入职补助：{{job.Subsidy}}<text style='font-size:24rpx;'>元/天</text></view>
+        </view>
+    </view>
+    <!-- 申请人数 -->
+    <view class='details_number'>已有<text style='color:#FF3708'>{{job.Apply}}</text>人申请</view>
+    <!-- 地址 -->
+    <!-- <view class='details_address'>
+      <view class='details_address_img'>
+        <image src='../../img/dw (1).png' style='width:100%;height:100%;'></image>
+      </view>
+      <view class='details_address_xq'>
+          <view class='details_address_xq_name'>面试地址：<view style='word-break: break-all'>{{job.Add}}</view></view>
+          <view class='details_address_xq_jl'>距离1.0公里</view>
+      </view>
+    </view> -->
+</view>
+
+<view class='details_job_count'>
+    <view class='details_job_count_tit'>
+        <view class='details_job_count_tit_icon'></view>
+        <view class='details_job_count_tit_text'>工作内容</view>
+    </view>
+    <view class='details_job_count_content'>
+        <view class='details_job_count_content_list'>{{job.WorkC}}</view>
+        <view class='details_job_count_icon'>
+          <!-- <image src='../../img/xljt (2).png' style='height:25rpx;width:35rpx;margin-left:46%;margin-top:-20rpx;'></image> -->
+        </view>
+    </view>
+    
+</view>
+
+<view class='details_job_count'>
+    <view class='details_job_count_tit'>
+        <view class='details_job_count_tit_icon'></view>
+        <view class='details_job_count_tit_text'>职位福利</view>
+    </view>
+    <view class='details_job_count_content'>
+          <view class='recruit_list_com_bottom' >
+            <view class='recruit_list_com_bottom_kuang' wx:for='{{job.Welfare}}'>{{item.Welfare}}</view>
+            <!-- <view class='recruit_list_com_bottom_kuang'>交补</view> -->
+        </view>
+        <view class='details_job_count_content_list'>{{job.Supply}}</view>
+        <view class='details_job_count_icon'></view>
+    </view>
+</view>
+<view class='fg' style='width100%;height:70rpx;'></view>
+</view>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+<view class='buttom'>
+<button class='kf'  open-type='contact' plain='true' style='background-color:#FFA803;color:white; border:none' >咨询客服
+    <!-- <view   ></view> -->
+    </button>
+    <view class='kf b_right' style='background-color:#FE4502;' bindtap='ms' wx:if='{{job.apply==1}}' id='{{job.QID}}'>申请面试</view>
+    <view class='kf' style='background-color:#C0C0C0'  wx:if='{{job.apply==0}}'>已申请</view>
+</view>

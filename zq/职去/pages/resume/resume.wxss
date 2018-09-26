@@ -1,0 +1,119 @@
+/* pages/resume/resume.wxss */
+page{
+  background-color: #F0F0F0;
+}
+.top{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: #1BA8B9;
+  /* border: 1rpx solid black; */
+}
+.top_left{
+  width: 77%;
+  /* border: 1rpx solid black; */
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  color: #A8D7DE;
+}
+.top_right{
+  width: 20%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #F1F7F8;
+  background-color: #007888;
+}
+.basic{
+  width: 90%;
+  margin-left: 5%;
+  /* height: 700rpx; */
+  margin-top: 20rpx;
+  /* border: 1rpx solid black; */
+}
+.basic_tit{
+  height: 80rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #333333;
+  line-height: 80rpx;
+  margin-left: 10rpx;
+}
+.basic_list{
+  width: 100%;
+  /* height: 580rpx; */
+  border: 1rpx solid #D6D6D6;
+  background-color: white;
+}
+.basic_list_coul{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  /* border: 1rpx solid black; */
+}
+.basic_list_coul_name{
+  width: 25%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333333;
+  height: 80rpx;
+  line-height: 80rpx;
+  /* border: 1rpx solid black; */
+}
+.basic_list_coul_input{
+  width: 70%;
+  height: 80rpx;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #DCDCDC;
+}
+.basic_list_coul_right{
+  /* border: 1rpx solid black; */
+  display: flex;
+  flex-direction: row;
+}
+.picker{
+  width: 400rpx;
+  /* border: 1rpx solid black; */
+  height: 80rpx;
+  line-height: 80rpx;
+  color:#CCCCCC;
+  font-size:28rpx;
+}
+.basic_div{
+  width: 100%;
+  /* height: 580rpx; */
+  border: 1rpx solid #D6D6D6;
+  background-color: white;
+}
+.basic_div_list{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+.basic_div_list_name{
+  width: 48%;
+  margin-left: 2%;
+  /* border: 1rpx solid black; */
+  color: #2D2D2D;
+  font-size: 28rpx;
+}
+.basic_div_list_text{
+  width: 42%;
+  font-size: 26rpx;
+  color: #999999;
+  text-align: right;
+}
+.basic_div_list_add{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #FF4502;
+}

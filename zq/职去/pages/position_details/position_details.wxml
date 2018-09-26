@@ -1,0 +1,76 @@
+<!--pages/position_details/position_details.wxml-->
+
+<view class='release_details'>
+    <view class='release_details_list'>
+          <view class='release_details_list_name'>职位名称：</view>
+          <view class='release_details_list_input'>{{jobs[0].JobName}}</view>
+    </view>
+    <view class='release_details_list'>
+          <view class='release_details_list_name'>工资薪酬：</view>
+          <view class='release_details_list_input'>
+              <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}"> -->
+                  <view class="picker">
+                    <view class='pickers'>{{jobs[0].Wage}}</view>
+                    <!-- <image src='../../img/blackxl.png' style='width:30rpx;margin-top:30rpx;' mode='widthFix'></image> -->
+                  </view>  
+                <!-- </picker> -->
+          </view>
+    </view>
+    <view class='release_details_list'>
+          <view class='release_details_list_name'>入职补助：</view>
+          <view class='release_details_list_input' style='width:40%;'>{{jobs[0].Subsidy}}</view>
+          <view class='release_details_list_name' style='color:#939393;margin-left:10rpx;margin-top:20rpx;'>/天</view>
+    </view>
+     <view class='release_details_list'>
+          <view class='release_details_list_name'>学历要求：</view>
+          <view class='release_details_list_input'>
+              <!-- <picker bindchange="bindXlarrayrChange" value="{{xl}}" range="{{xlarray}}"> -->
+                  <view class="picker">
+                    <view class='pickers'>{{jobs[0].XueLi}}</view>
+                    <!-- <image src='../../img/blackxl.png' style='width:30rpx;margin-top:30rpx;' mode='widthFix'></image> -->
+                  </view>  
+                <!-- </picker> -->
+          </view>
+    </view>
+      <view class='release_details_list'>
+          <view class='release_details_list_name'>年龄要求：</view>
+          <view class='release_details_list_input'>
+              <!-- <picker bindchange="bindAgeArrayrChange" value="{{age}}" range="{{ageArray}}"> -->
+                  <view class="picker">
+                    <view class='pickers'>{{jobs[0].Age}}</view>
+                    <!-- <image src='../../img/blackxl.png' style='width:30rpx;margin-top:30rpx;' mode='widthFix'></image> -->
+                  </view>  
+                <!-- </picker> -->
+          </view>
+    </view>
+     <view class='release_details_list'>
+          <view class='release_details_list_name'>经验要求：</view>
+          <view class='release_details_list_input'>
+              <!-- <picker bindchange="bindExperienceArrayChange" value="{{experience}}" range="{{experienceArray}}"> -->
+                  <view class="picker">
+                    <view class='pickers'>{{jobs[0].Exp}}</view>
+                    <!-- <image src='../../img/blackxl.png' style='width:30rpx;margin-top:30rpx;' mode='widthFix'></image> -->
+                  </view>  
+                <!-- </picker> -->
+          </view>
+    </view>
+</view>
+<view class='job_count'>
+    <view class='job_count_tit'>工作内容</view>
+    <view class='textarea'>{{jobs[0].WorkC}}</view>
+</view>
+
+<view class='job_count' style='border:none'>
+    <view class='job_count_tit'>职位福利</view>
+    <view class='job_count_fl'>
+        <view class='job_count_fl_list' wx:for='{{jobs[0].Welfare}}'>{{item.Welfare}}</view>
+         <!-- <view class='job_count_fl_list'>交通补助</view>
+          <view class='job_count_fl_list'>餐费补助</view>
+           <view class='job_count_fl_list'>定期旅游</view>
+            <view class='job_count_fl_list'>房贷补助</view> -->
+    </view>
+   <view class='textarea' style='margin-top:20rpx;'>{{jobs[0].Supply}}</view>
+    <view class='button'>
+       
+    </view>
+</view>

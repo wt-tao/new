@@ -1,0 +1,124 @@
+<!--index.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view  class='page'>
+<view class='ico'>
+  <view class='ico_img'>
+    <image src='{{url}}/images/login-9.png' style='width:100%;height:100%'></image>
+  </view>
+  <view class='ico_text'>会员注册</view>
+</view>
+
+<view class='xz_register'>
+    <view class="xz_register_text {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">
+      <view class='xz_register_text_1' data-current="0">我是求职者</view>
+    </view>
+    <view class="xz_register_text {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">我是招聘方</view>
+</view>
+
+<!-- <swiper current="{{currentTab}}" class="swiper-box" bindchange='currentTabs' style="height:650rpx;" > -->
+    <!-- <swiper-item style="height:650rpx;overflow: scroll;"> -->
+    <block wx:if='{{currentTab==0}}'>
+        <view class='login'>
+        <view class='login_cou'>
+          <image class='image' src='../../img/telphone-(1).png' style='width:35rpx;' mode='widthFix'></image>
+          <input class='login_input' style='width:60%' placeholder='输入手机号' placeholder-style='color:#B5B5B5;font-size:28rpx;' type='number' maxlength='11' bindinput='q_phone'></input>
+          <view class='login_text' wx:if="{{!isShow}}" bindtap='getCodes' >发送验证码</view>
+          <view class='login_text' wx:if="{{isShow}}" >已发送{{sec}}</view>
+        </view>
+        <view class='login_cou'>
+          <image class='image' src='../../img/login-yz.png' style='width:40rpx;margin-top:25.5rpx;' mode='widthFix'></image>
+          <input class='login_input' placeholder='输入验证码' placeholder-style='color:#B5B5B5;font-size:28rpx;' bindinput='q_yzm'></input>
+        </view>
+        <view class='login_cou'>
+          <image class='image' src='../../img/password.png' style='width:45rpx;margin-top:25.5rpx;' mode='widthFix'></image>
+          <input class='login_input' placeholder='输入密码' placeholder-style='color:#B5B5B5;font-size:28rpx;' type='password' bindinput='q_password'></input>
+        </view>
+      </view>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+<view class='login_button' bindtap='mains'>立即注册</view>
+
+<view class='icon'>
+    <icon type='success' size='25' color='#FE4402' style='margin-left:25%'></icon>
+    <text class='ic0n_text'>我同意锐盛招聘用户注册协议</text>
+</view>
+</block>
+    <!-- </swiper-item> -->
+  <!-- 招聘方 -->
+      <!-- <swiper-item > -->
+      <block wx:if='{{currentTab==1}}'>
+        <view class='login'>
+        <view class='login_cou'>
+          <image class='image' src='../../img/telphone-(1).png' style='width:35rpx;margin-left:5rpx;' mode='widthFix'></image>
+          <input class='login_input' style='width:60%' placeholder='输入手机号' placeholder-style='color:#B5B5B5;font-size:28rpx;' type='number' bindinput='phone'></input>
+          <view class='login_text' wx:if="{{!isShow}}" bindtap='getCode' >发送验证码</view>
+          <view class='login_text' wx:if="{{isShow}}" >已发送{{sec}}</view>
+        </view>
+        <view class='login_cou'>
+          <image class='image' src='../../img/login-yz.png' style='width:40rpx;margin-top:25.5rpx;' mode='widthFix'></image>
+          <input class='login_input' placeholder='输入验证码' placeholder-style='color:#B5B5B5;font-size:28rpx;' type='number' maxlength='6' bindinput='yzm'></input>
+        </view>
+        <view class='login_cou'>
+          <image class='image' src='../../img/password.png' style='width:45rpx;margin-top:25.5rpx;' mode='widthFix'></image>
+          <input class='login_input' placeholder='输入密码' placeholder-style='color:#B5B5B5;font-size:28rpx;' type='password' bindinput='password'></input>
+        </view>
+         <view class='login_cou'>
+          <image class='image' src='../../img/gstb.png' style='width:45rpx;margin-top:25.5rpx;' mode='widthFix'></image>
+          <input class='login_input' placeholder='公司名称' placeholder-style='color:#B5B5B5;font-size:28rpx;' bindinput='company' ></input>
+        </view>
+         <view class='login_cou'>
+          <image class='image' src='../../img/sshy.png' style='width:50rpx;margin-top:25.5rpx;' mode='widthFix'></image>
+          <input class='login_input' placeholder='所属行业' placeholder-style='color:#B5B5B5;font-size:28rpx;' value='{{Dwname[index].Dwname}}'></input>
+            <picker bindchange="bindPickerChange" data-selecthx="{{Dwname[index].Dwname}}" value="{{Dwname[index].Dwid}}" range="{{Dwname}}" range-key="{{'Dwname'}}">
+              <image src='../../img/blackxl.png' style='width:40rpx;margin-left:140rpx;margin-top:40rpx;' mode='widthFix'></image>
+            </picker>
+          
+        </view>
+        <view class='login_cou'>
+          <image class='image' src='../../img/qyxz.png' style='width:50rpx;margin-top:25.5rpx;' mode='widthFix'></image>
+          <input class='login_input' placeholder='企业性质' placeholder-style='color:#B5B5B5;font-size:28rpx;'value='{{Dwnamexz[indexs].Dwname}}' ></input>
+           <picker bindchange="bindPickersChange" data-selecthx="{{Dwnamexz[indexs].Dwname}}" value="{{Dwnamexz[indexs].Dwid}}" range="{{Dwnamexz}}" range-key="{{'Dwname'}}">
+              <image src='../../img/blackxl.png' style='width:40rpx;margin-left:140rpx;margin-top:40rpx;' mode='widthFix'></image>
+            </picker>
+        </view>
+        <view class='login_cou'>
+          <image class='image' src='../../img/yyzz.png' style='width:50rpx;margin-top:25.5rpx;' mode='widthFix'></image>
+          <view class='login_input' placeholder='营业执照' placeholder-style='color:#B5B5B5;font-size:28rpx;' style='width:55%' ></view>
+          <view class='login_text' bindtap='img' wx:if="{{tempFilePaths==''}}">上传营业执照</view>
+          <view class='login_text' bindtap='img' wx:if="{{tempFilePaths!=''}}">已上传</view>
+        </view>
+        <view class='login_cou'>
+          <image class='image' src='../../img/gsdztb.png' style='width:40rpx;margin-top:20.5rpx;' mode='widthFix'></image>
+          <input class='login_input' placeholder='公司地址(例：xx市)' placeholder-style='color:#B5B5B5;font-size:28rpx;' bindinput='company_addres' />
+        </view>
+        <view class='login_cou'>
+          <image class='image' src='../../img/gsdztb.png' style='width:40rpx;margin-top:20.5rpx;' mode='widthFix'></image>
+          <input class='login_input' style='width:75%' placeholder='详细地址(例：xx区xx街xx号)' placeholder-style='color:#B5B5B5;font-size:28rpx;' bindinput='Street' />
+        </view>
+
+        <view class='login_cou' style='height:120rpx;border:none;margin-top:20rpx;'>
+          <image class='image' src='../../img/logo.jpg' style='width:50rpx;margin-top:20.5rpx;' mode='widthFix'></image>
+          <view class='img_upload_button' bindtap='ImgUrl1'>
+                <view class='div' wx:if="{{ImgUrl1!=''}}">
+                    <image src='{{ImgUrl1}}' style='width:100%;height:100%'></image>
+                </view>
+                <view class='div' wx:if="{{ImgUrl1==''}}">
+                  <view class='add'>+</view>
+                  <view class='upload_img'>上传图片</view>
+                </view>
+              </view>
+        </view>
+
+      </view>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+<view class='login_button' bindtap='main' data-hy='{{Dwname[index].Dwname}}' data-xz='{{Dwnamexz[indexs].Dwname}}'>立即注册</view>
+
+<view class='icon'>
+    <icon type='success' size='25' color='#FE4402' style='margin-left:25%'></icon>
+    <text class='ic0n_text'>我同意锐盛招聘用户注册协议</text>
+</view>
+</block>
+    <!-- </swiper-item>
+</swiper> -->
+
+</view>
+

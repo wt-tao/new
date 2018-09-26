@@ -1,0 +1,21 @@
+<!--pages/put_forward/put_forward.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view class='name'>
+<input class='name_input' placeholder='请输入您的微信号' placeholder-style='color:#CCCCCC;font-size:30rpx;'  bindinput='phone' maxlength='11' type='number'></input>
+</view>
+
+<view class='name'>
+<input class='name_input' placeholder='请输入提现金额' placeholder-style='color:#CCCCCC;font-size:30rpx;'  bindinput='money' maxlength='11' type='number'></input>
+</view>
+
+<view style='font-size:28rpx;margin-top:50rpx;margin-left:5%'>可提现：<text style='color:#FE4502'>{{jf}}</text></view>
+<view class='qd' bindtap='sure'>确定</view>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+
+<view class='text'>
+  <text>
+1.剩余积分大于100才能提现
+2.1积分对应1元人民币
+3.提现只支持微信账户
+4.请注意添加提现专用微信号17358650080为好友，我们将以转账的方式进行发放。</text>
+</view>

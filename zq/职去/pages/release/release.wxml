@@ -1,0 +1,180 @@
+<!--pages/release/release.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view class='page'>
+    <view class='top'>
+      <view class="top_coun {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">发布职位</view>
+      <view class="top_coun {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" >发布动态</view>
+    </view>
+<!-- <swiper current="{{currentTab}}" class="swiper-box" bindchange='currentTabs' style="height:1000rpx;"> -->
+    <!-- 发布职位 -->
+    <!-- <swiper-item style="height:1000rpx;overflow: scroll;"> -->
+  <block wx:if='{{currentTab==0}}'>
+        <view class='release_details'>
+    <view class='release_details_list'>
+          <view class='release_details_list_name'>职位名称：</view>
+          <input class='release_details_list_input' bindinput='job_name' style='padding-left:10rpx;'></input>
+    </view>
+    <view class='release_details_list'>
+          <view class='release_details_list_name'>工资薪酬：</view>
+          <view class='release_details_list_input'>
+              <picker bindchange="bindPickerChange" data-selecthx="{{money[index].Dwname}}" value="{{money[index].Dwid}}" range="{{money}}" range-key="{{'Dwname'}}">
+                  <view class="picker">
+                    <view class='pickers'>{{money[index].Dwname}}</view>
+                    <image src='../../img/blackxl.png' style='width:30rpx;margin-top:30rpx;' mode='widthFix'></image>
+                  </view>  
+                </picker>
+          </view>
+    </view>
+    <view class='release_details_list'>
+          <view class='release_details_list_name'>入职补助：</view>
+          <input class='release_details_list_input' style='width:38%;padding-left:10rpx;' bindinput='Subsidy' ></input>
+          <view class='release_details_list_name' style='color:#939393;margin-left:10rpx;margin-top:20rpx;'>/天</view>
+    </view>
+      <view class='release_details_list'>
+          <view class='release_details_list_name'>积　　分：</view>
+          <input class='release_details_list_input' style='width:38%;padding-left:10rpx;' bindinput='jf' type='number' ></input>
+          <view class='release_details_list_name' style='color:#939393;margin-left:10rpx;margin-top:20rpx;'></view>
+    </view>
+     <view class='release_details_list'>
+          <view class='release_details_list_name'>学历要求：</view>
+          <view class='release_details_list_input'>
+              <picker bindchange="bindXlarrayrChange" data-selecthx="{{education[xl].Dwname}}" value="{{education[xl].Dwid}}" range="{{education}}" range-key="{{'Dwname'}}">
+                  <view class="picker">
+                    <view class='pickers'>{{education[xl].Dwname}}</view>
+                    <image src='../../img/blackxl.png' style='width:30rpx;margin-top:30rpx;' mode='widthFix'></image>
+                  </view>  
+                </picker>
+          </view>
+    </view>
+      <view class='release_details_list'>
+          <view class='release_details_list_name'>年龄要求：</view>
+          <view class='release_details_list_input'>
+              <picker bindchange="bindAgeArrayrChange" data-selecthx="{{ages[age].Dwname}}" value="{{ages[age].Dwid}}" range="{{ages}}" range-key="{{'Dwname'}}">
+                  <view class="picker">
+                    <view class='pickers'>{{ages[age].Dwname}}</view>
+                    <image src='../../img/blackxl.png' style='width:30rpx;margin-top:30rpx;' mode='widthFix'></image>
+                  </view>  
+                </picker>
+          </view>
+    </view>
+     <view class='release_details_list'>
+          <view class='release_details_list_name'>经验要求：</view>
+          <view class='release_details_list_input'>
+              <picker bindchange="bindExperienceArrayChange"  data-selecthx="{{exp[experience].Dwname}}" value="{{exp[experience].Dwid}}" range="{{exp}}" range-key="{{'Dwname'}}">
+                  <view class="picker">
+                    <view class='pickers'>{{exp[experience].Dwname}}</view>
+                    <image src='../../img/blackxl.png' style='width:30rpx;margin-top:30rpx;' mode='widthFix'></image>
+                  </view>  
+                </picker>
+          </view>
+    </view>
+     <view class='release_details_list'>
+          <view class='release_details_list_name'>公司地址：</view>
+          <input class='release_details_list_input' bindinput='Add' style='padding-left:10rpx;' value='{{Add}}'></input>
+    </view>
+</view>
+<view class='job_count'>
+    <view class='job_count_tit'>工作内容</view>
+    <textarea class='textarea' placeholder='请输入工作内容' placeholder-style='color:#CCCCCC;font-size:30rpx;' bindinput='WorkC'/>
+</view>
+
+<view class='job_count' style='border:none'>
+    <view class='job_count_tit'>职位福利</view>
+    <view class='job_count_fl' >
+        <view class="job_count_fl_list {{item.checked ? 'active-tag' : ''}}" data-name='{{item.Dwid}}' data-index="{{index}}" wx:for='{{welfare}}'  bindtap="select_date">{{item.Dwname}}</view>
+    </view>
+    <textarea class='textarea' placeholder='请输入职位福利补充' placeholder-style='color:#CCCCCC;font-size:30rpx;' style='margin-top:20rpx;' bindinput='Supply' />
+    <view class='button'>
+        <view class='button_list' bindtap='qx'>取 消</view>
+        <view class='button_list' style='background-color: #FE4502;color:white' bindtap='fb' data-add='{{Add}}'>发 布</view>
+    </view>
+    <view class='dingkuiang'></view>
+</view>
+<template is="wetoast" data="{{...__wetoast__}}"/>
+</block>
+    <!-- </swiper-item> -->
+    <!-- 发布动态 -->
+    <!-- <swiper-item style="height:1000rpx;overflow: scroll;"> -->
+     <block wx:if='{{currentTab==1}}'>
+        <view class='dynamic_tit'>
+            <view class='dynamic_tit_name'>新闻标题</view>
+            <input class='dynamic_tit_input' bindinput='title'/>
+        </view>
+
+        <view class='dynamic_tit'>
+            <view class='dynamic_tit_name'>详细内容</view>
+            <textarea class='dynamic_tit_itextarea' placeholder='请输入详细内容' placeholder-style='color:#CFCFCF;font-size:30rpx;' maxlength='3000' bindinput='Content' />
+        </view>
+
+        <view class='img'>
+          <view class='img_tit'>图片上传</view>
+          <view class='img_upload'>
+              <view class='img_upload_button' bindtap='ImgUrl1'>
+                <view class='div' wx:if="{{ImgUrl1!=''}}">
+                    <image src='{{ImgUrl1}}' style='width:100%;height:100%'></image>
+                </view>
+                <view class='div' wx:if="{{ImgUrl1==''}}">
+                  <view class='add'>+</view>
+                  <view class='upload_img'>上传图片</view>
+                </view>
+              </view>
+
+               <view class='img_upload_button' bindtap='ImgUrl2'>
+                 <view class='div' wx:if="{{ImgUrl2!=''}}">
+                    <image src='{{ImgUrl2}}' style='width:100%;height:100%'></image>
+                </view>
+                <view class='div' wx:if="{{ImgUrl2==''}}">
+                  <view class='add'>+</view>
+                  <view class='upload_img'>上传图片</view>
+                </view>
+              </view>
+
+               <view class='img_upload_button' bindtap='ImgUrl3'>
+                  <view class='div' wx:if="{{ImgUrl3!=''}}">
+                    <image src='{{ImgUrl3}}' style='width:100%;height:100%'></image>
+                </view>
+                <view class='div' wx:if="{{ImgUrl3==''}}">
+                  <view class='add'>+</view>
+                  <view class='upload_img'>上传图片</view>
+                </view>
+              </view>
+          </view>
+
+        </view>
+
+       <view class='button' style='margin-top:80rpx;'>
+        <view class='button_lists' bindtap='qx'>取 消</view>
+        <view class='button_lists' style='background-color: #FE4502;color:white;margin-left:3%;' bindtap='dongtfa'>发 布</view>
+    </view>
+    <template is="wetoast" data="{{...__wetoast__}}"/>
+     </block>
+    <!-- </swiper-item> -->
+<!-- </swiper> -->
+
+
+
+
+
+</view>
+<view class='dibu'>
+    <view class='icon_img' bindtap='job_news'>
+        <image src="{{icon1==true?'../../img/icon-copy-5.png':'../../img/icon-copy-5_13.png'}}" style='width:40rpx;margin-left:55rpx;margin-top:10rpx' mode='widthFix'></image>
+        <view class='icon_text'>消息</view>
+    </view>
+     <view class='icon_img' bindtap='sign_in'>
+        <image src="{{icon2==true?'../../img/zpfqd.png':'../../img/zpfms91.png'}}" style='width:40rpx;margin-left:55rpx;margin-top:15rpx' mode='widthFix'></image>
+        <view class='icon_text'>签到</view>
+    </view>
+     <view class='icon_img'>
+        <image src="../../img/zpffb-(1)_99.png" style='width:100rpx;margin-left:25rpx;margin-top:-40rpx;' mode='widthFix'></image>
+        <view class='icon_text' style='margin-top:-10rpx;'>发布</view>
+    </view>
+     <view class='icon_img' bindtap='interview'>
+        <image src="{{icon3==true?'../../img/zpfms (1).png':'../../img/zpfms (2).png'}}" style='width:50rpx;margin-left:55rpx;margin-top:10rpx' mode='widthFix'></image>
+        <view class='icon_text'>面试</view>
+    </view>
+     <view class='icon_img' bindtap='position'>
+        <image src="{{icon4==true?'../../img/zpfyz-(1).png':'../../img/zpfyz-(2).png'}}" style='width:40rpx;margin-left:55rpx;margin-top:10rpx' mode='widthFix'></image>
+        <view class='icon_text' style='margin-top:-5rpx;'>职位</view>
+    </view>
+</view>

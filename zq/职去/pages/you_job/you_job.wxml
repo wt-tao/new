@@ -1,0 +1,33 @@
+<!--pages/you_job/you_job.wxml-->
+<view class='list'>
+    <view class='name'>公　　司</view>
+    <view class='input'>
+    <view class='input' style='width:100%' >{{job[0].profile1}}</view>
+    </view>
+</view>
+
+<view class='list'>
+    <view class='name'>职　　位</view>
+    <view class='input'>
+    <view class='input' style='width:100%' >{{job[0].profile2}}</view>
+    </view>
+</view>
+
+<view class='list'>
+    <view class='name'>入职时间</view>
+    <view class='input' >
+        <view class='input'style='font-size:30rpx;width:100%'>{{job[0].BegTime}}</view>  
+    </view>   
+</view>
+<view class='list'>
+    <view class='name'>离职时间</view>
+    <view class='input' >
+        <view class='input'style='font-size:30rpx;width:100%'>{{job[0].EndTime}}</view>   
+    </view>
+</view>
+
+<view class='list' style='border:none'>
+    <view class='name' style='width:30%;'>工作内容</view>
+</view>
+<view class='textarea' >{{job[0].profile6}}</view>
+

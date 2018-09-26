@@ -1,0 +1,40 @@
+<!--pages/Interview_list/Interview_list.wxml-->
+<view class='details_companys' wx:if='{{id==1}}' wx:for='{{news1}}' >
+            <view class='details_companys_time' >
+                <text style='width:86.5%;margin-left:2.5%'>{{item.Time}}</text>
+                <view class='details_companys_time_img'>
+                    <image src='../../img/new.png' style='width:100%;height:100%;' mode='widthFix' wx:if='{{item.code==1}}'></image>
+                </view>
+            </view>
+            <view class='details_companys_gs'>您对 <text style='color:#009AFE'>{{item.CompanyNmae}} {{item.JobName}}</text> 申请了面试
+            </view>
+            <view style='height:20rpx;'></view>
+</view>
+
+
+  <view class='details_companys'  wx:if='{{id==2}}' wx:for='{{news}}'>
+            <view class='details_companys_time' >
+                <text style='width:86.5%;margin-left:2.5%'>{{item.mTime}}</text>
+                <view class='details_companys_time_img'>
+                    <image src='../../img/new.png' style='width:100%;height:100%;' mode='widthFix' wx:if='{{item.code==1}}'></image>
+                </view>
+            </view>
+            <view class='details_companys_gs'> <text style='color:#009AFE'>{{item.mCompanyNmae}} </text>请您在<text style='color:#FF5022'>{{item.mTime}}</text>到<text style='color:#242423'>{{item.mAdd}}</text> 面试 <text style='color:#009AFE'>{{item.mJob}}</text>,请带上{{item.mTerial}}
+            </view>
+            <view style='height:20rpx;'></view>
+  </view>
+  
+
+  
+  <view class='details_companys'  wx:if='{{id==3}}' wx:for='{{news3}}'>
+            <view class='details_companys_time' > 
+                <text style='width:86.5%;margin-left:2.5%'>{{item.mTime}}</text>
+                <view class='details_companys_time_img'>
+                    <image src='../../img/new.png' style='width:100%;height:100%;' mode='widthFix' wx:if='{{item.code==1}}'></image>
+                </view>
+            </view>
+            <view class='details_companys_gs'>您已在 <text style='color:#009AFE'> {{item.Time}} 入职 {{item.CompanyNmae}} </text> 的<text style='color:#FF5022'> {{item.JobName}} </text>  职位
+            </view>
+            <view class='details_companys_gs' style='color:#FE4502' >入职天数：{{item.day}}天</view>
+            <view style='height:20rpx;'></view>
+  </view>

@@ -1,0 +1,159 @@
+<!--pages/interview/interview.wxml-->
+<import src="../../utils/wetoast.wxml"/>
+<view class='top'>
+  <view class="top_coun {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">待面试</view>
+  <view class="top_coun {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" >已面试</view>
+  <view class="top_coun {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav" >已入职</view>
+  <view class="top_coun {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav" >已离职</view>
+</view>
+
+
+    <!-- 待面试 -->
+    <!-- <swiper-item style="height:1000rpx;overflow: scroll;"> -->
+      <block wx:if="{{currentTab==0}}">
+
+       <view class='interview_dengdss' wx:for='{{jobc}}'>
+            
+
+       
+
+         
+          <view class='interview_dengd' style='width:100%;' >
+            <!-- 头像 -->
+                <view class='interview_dengd_img' bindtap='resume_details'>
+                    <image src='{{item.Head}}' style='width:100%' mode='widthFix' class='imgs'></image>
+                </view>
+                <!-- 资料 -->
+                <view class='interview_dengd_right'>
+                    <view class='interview_dengd_right_name'>
+                        <view class='interview_dengd_right_name_' style='color:#353535'>{{item.Name}}</view>
+                        <view class='interview_dengd_right_name_time'>面试时间：{{item.time}}</view>
+                    </view>
+                    <view class='interview_dengd_right_name' >应聘职位：{{item.JobName}}</view>
+                    <view class='botton'>
+                        <view class='botton_list' id='{{item.ID}}' bindtap='not'>未到</view>
+                        <view class='botton_list' style='border:1rpx solid #02CB68;color:#02CB68' id='{{item.ID}}' bindtap='pass'>通过</view>
+                        <view class='botton_list' style='border:1rpx solid #FE3301;color:#FE3301' bindtap='not_pass' id='{{item.ID}}'>不通过</view>
+                    </view>
+                </view>
+              </view>
+         <textarea class='textarea' placeholder='请输入不通过原因' placeholder-style='color:#BCBCBC;font-size:30rpx;' bindinput='content'/>
+         <view style='height:10rpx;'></view>
+
+         <view style='height:120rpx;'></view>
+       </view>
+       <template is="wetoast" data="{{...__wetoast__}}"/>
+       </block>
+
+    <!-- 已面试 -->
+
+    <block wx:if="{{currentTab==1}}">
+    <scroll-view style='height:1000rpx;' scroll-y>
+        <view class='interview_dengds' wx:for='{{yjob}}'>
+              <view class='interview_dengd'>
+            <!-- 头像 -->
+                <view class='interview_dengd_img'>
+                     <image src='{{item.Head}}' style='width:100%' mode='widthFix' class='imgs'></image>
+                </view>
+                <!-- 资料 -->
+                <view class='interview_dengd_right'>
+                    <view class='interview_dengd_right_name'>
+                        <view class='interview_dengd_right_name_' style='color:#353535'>{{item.Name}}</view>
+                        <view class='interview_dengd_right_name_time'>面试时间：{{item.time}}</view>
+                    </view>
+                    <view class='interview_dengd_right_name' >应聘职位：{{item.JobName}}</view>
+                    <view class='botton' style='flex-direction: column;height:100%'>
+                        <view class='botton_lists' wx:if='{{item.Mcode==1}}' >面试不通过</view>
+                        <view class='botton_lists' style='color:#1FD27A' wx:if='{{item.Mcode==0}}'>面试通过</view>
+                        <view class='botton_lists' wx:if='{{item.Mcode==1}}'>原因：{{item.Content}}</view>
+                        <view style='height:10rpx;'></view>
+                    </view>
+                </view>
+              </view>
+         <!-- <view style='height:10rpx;'></view> -->
+       </view>
+        
+       
+       </scroll-view>
+        </block>
+    <!-- </swiper-item> -->
+
+    <!-- 已入职 -->
+       <!-- <swiper-item style="height:1000rpx;overflow: scroll;"> -->
+       <block wx:if="{{currentTab==2}}">
+        <scroll-view style='height:1000rpx;' scroll-y>
+        <view class='interview_dengds' wx:for='{{yjobs}}'>
+              <view class='interview_dengd'>
+            <!-- 头像 -->
+                <view class='interview_dengd_img'>
+                     <image src='{{item.Head}}' style='width:100%' mode='widthFix' class='imgs'></image>
+                </view>
+                <!-- 资料 -->
+                <view class='interview_dengd_right'>
+                    <view class='interview_dengd_right_name'>
+                        <view class='interview_dengd_right_name_' style='color:#353535'>{{item.Name}}</view>
+                        <view class='interview_dengd_right_name_time'>入职时间：{{item.Time}}</view>
+                    </view>
+                    <view class='interview_dengd_right_name' >应聘职位：{{item.JobName}}</view>
+                  
+                </view>
+              </view>
+         <view style='height:10rpx;'></view>
+       </view>
+        
+
+ 
+
+       </scroll-view>
+        </block>
+    <!-- </swiper-item> -->
+        <!-- 已离职 -->
+    <!-- <swiper-item style="height:1000rpx;overflow: scroll;"> -->
+    <block wx:if="{{currentTab==3}}">
+    <scroll-view style='height:1000rpx;' scroll-y>
+      <view class='interview_dengds' wx:for='{{yjobss}}'>
+              <view class='interview_dengd' >
+            <!-- 头像 -->
+                <view class='interview_dengd_img'>
+                     <image src='{{item.Head}}' style='width:100%' mode='widthFix' class='imgs'></image>
+                </view>
+                <!-- 资料 -->
+                <view class='interview_dengd_right'>
+                    <view class='interview_dengd_right_names'>
+                        <view class='interview_dengd_right_name_' style='color:#353535'>{{item.Name}}</view>
+                    </view>
+                    <view class='interview_dengd_right_name' >应聘职位：{{item.JobName}}</view>
+                  <view class='interview_dengd_right_name_time' style='text-align: left;line-height: 60rpx;margin-left:10rpx;'>离职时间：{{item.Time}}</view>
+                </view>
+              </view>
+         <view style='height:10rpx;'></view>
+       </view>
+
+       </scroll-view>
+       </block>
+    <!-- </swiper-item> -->
+<!-- </swiper> -->
+
+
+<view class='dibu'>
+    <view class='icon_img'  bindtap='job_news'>
+        <image src="{{icon1==true?'../../img/icon-copy-5.png':'../../img/icon-copy-5_13.png'}}" style='width:40rpx;margin-left:55rpx;margin-top:10rpx' mode='widthFix'></image>
+        <view class='icon_text'>消息</view>
+    </view>
+     <view class='icon_img' bindtap='sign_in'>
+        <image src="{{icon2==true?'../../img/zpfqd.png':'../../img/zpfms91.png'}}" style='width:40rpx;margin-left:55rpx;margin-top:15rpx' mode='widthFix'></image>
+        <view class='icon_text'>签到</view>
+    </view>
+     <view class='icon_img' bindtap='release'>
+        <image src="../../img/zpffb-(1)_99.png" style='width:100rpx;margin-left:25rpx;margin-top:-40rpx;' mode='widthFix'></image>
+        <view class='icon_text' style='margin-top:-10rpx;'>发布</view>
+    </view>
+     <view class='icon_img' >
+        <image src="{{icon3==true?'../../img/zpfms (1).png':'../../img/zpfms (2).png'}}" style='width:60rpx;margin-left:50rpx;' mode='widthFix'></image>
+        <view class='icon_text' style='margin-top:-10rpx;'>面试</view>
+    </view>
+     <view class='icon_img' bindtap='position'>
+        <image src="{{icon4==true?'../../img/zpfyz-(1).png':'../../img/zpfyz-(2).png'}}" style='width:40rpx;margin-left:55rpx;margin-top:10rpx' mode='widthFix'></image>
+        <view class='icon_text' style='margin-top:-5rpx;'>职位</view>
+    </view>
+</view>

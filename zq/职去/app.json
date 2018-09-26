@@ -1,0 +1,96 @@
+{
+  "pages":[
+    "pages/enterprise/enterprise",
+    "pages/main/main",
+    
+   "pages/uesr/uesr",
+    "pages/position/position",
+    "pages/release/release",
+    
+    "pages/all_position/all_position",
+    "pages/sign_in/sign_in",
+    
+    
+    "pages/index/index",
+    
+    "pages/put_forward/put_forward",
+    "pages/Interview_list/Interview_list",
+    "pages/forget_password/forget_password",
+    "pages/news/news",
+    "pages/interview/interview", 
+    
+    "pages/company_details/company_details", 
+    "pages/animation/animation", 
+    
+    "pages/resume_details/resume_details",  
+    "pages/resume/resume",
+    "pages/user_news/user_news",
+    "pages/job_news/job_news",
+    "pages/register/register",  
+    "pages/daily_new/daily_new",
+    "pages/hot_position/hot_position", 
+    "pages/add_job/add_job", 
+    "pages/education/education",
+    "pages/passwords/passwords",
+    "pages/uesr_name/uesr_name",
+    "pages/uesr_phone/uesr_phone", 
+    "pages/news_details/news_details",  
+    "pages/job_details/job_details", 
+    "pages/project/project",
+    "pages/skill/skill",
+    "pages/you_job/you_job",
+    "pages/education_detalis/education_detalis",
+    "pages/project_datils/project_datils",
+    "pages/skill_details/skill_details",
+    "pages/position_details/position_details",
+    
+    
+   
+   
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#FE4502",
+    "navigationBarTitleText": "职去招聘",
+    "navigationBarTextStyle":"white"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "tabBar": {
+    "color": "#B2B2B2",
+    "selectedColor": "#FD541B",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "iconPath": "/img/main1.png",
+        "selectedIconPath": "/img/main_401.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/enterprise/enterprise",
+        "iconPath": "img/new (2).png",
+        "selectedIconPath": "img/new (1).png",
+        "text": "企业圈"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "iconPath": "img/news (1).png",
+        "selectedIconPath": "img/news (2).png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/uesr/uesr",
+        "iconPath": "img/user (1).png",
+        "selectedIconPath": "img/user (2).png",
+        "text": "我的"
+      }
+    ]
+  }
+}

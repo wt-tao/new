@@ -1,0 +1,20 @@
+<!--pages/skill_details/skill_details.wxml-->
+<view class='list'>
+    <view class='name'>技能名称</view>
+    <view class='input'>
+    <view class='input' style='width:100%'>{{job[0].profile1}}</view>
+    </view>
+</view>
+
+
+<view class='list'>
+    <view class='name'>获得时间</view>
+    <view class='input' >
+        <view class='input'style='font-size:30rpx;width:100%'>{{job[0].BegTime}}</view> 
+    </view>   
+</view>
+
+<view class='list' style='border:none'>
+    <view class='name' style='width:30%;'>备　　注</view>
+</view>
+<view class='textarea' >{{job[0].profile6}}</view>

@@ -1,0 +1,8 @@
+<!--pages/animation/animation.wxml-->
+<!-- <view class="container">
+  <view animation="{{animation}}" class="view">我动
+  </view>
+</view>
+<button type="primary" bindtap="rotate">旋转</button>
+<button type="primary" bindtap="rotates">取消</button> -->
+<view class='box1'></view>
